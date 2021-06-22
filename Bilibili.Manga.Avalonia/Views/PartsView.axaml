@@ -1,0 +1,65 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Bilibili.Manga.Avalonia.Views.PartsView">
+	<Grid Margin="8">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<HorizontalItemsRepeater Name="styleList" Grid.Row="0">
+			<HorizontalItemsRepeater.ItemTemplate>
+				<DataTemplate>
+					<RadioButton Command="{Binding $parent[Grid].DataContext.OnSelectRadio}" CommandParameter="{Binding}" GroupName="style" Content="{Binding Name}" />
+				</DataTemplate>
+			</HorizontalItemsRepeater.ItemTemplate>
+		</HorizontalItemsRepeater>
+		<HorizontalItemsRepeater Name="areaList" Grid.Row="1">
+			<HorizontalItemsRepeater.ItemTemplate>
+				<DataTemplate>
+					<RadioButton Command="{Binding $parent[Grid].DataContext.OnSelectRadio}" CommandParameter="{Binding}" GroupName="area" Content="{Binding Name}" />
+				</DataTemplate>
+			</HorizontalItemsRepeater.ItemTemplate>
+		</HorizontalItemsRepeater>
+		<HorizontalItemsRepeater Name="statusList" Grid.Row="2">
+			<HorizontalItemsRepeater.ItemTemplate>
+				<DataTemplate>
+					<RadioButton Command="{Binding $parent[Grid].DataContext.OnSelectRadio}" CommandParameter="{Binding}" GroupName="status" Content="{Binding Name}" />
+				</DataTemplate>
+			</HorizontalItemsRepeater.ItemTemplate>
+		</HorizontalItemsRepeater>
+		<HorizontalItemsRepeater Name="orderList" Grid.Row="3">
+			<HorizontalItemsRepeater.ItemTemplate>
+				<DataTemplate>
+					<RadioButton Command="{Binding $parent[Grid].DataContext.OnSelectRadio}" CommandParameter="{Binding}" GroupName="order" Content="{Binding Name}" />
+				</DataTemplate>
+			</HorizontalItemsRepeater.ItemTemplate>
+		</HorizontalItemsRepeater>
+		<HorizontalItemsRepeater Name="priceList" Grid.Row="4">
+			<HorizontalItemsRepeater.ItemTemplate>
+				<DataTemplate>
+					<RadioButton Command="{Binding $parent[Grid].DataContext.OnSelectRadio}" CommandParameter="{Binding}" GroupName="price" Content="{Binding Name}" />
+				</DataTemplate>
+			</HorizontalItemsRepeater.ItemTemplate>
+		</HorizontalItemsRepeater>
+    <CellListView Name="listBox" Items="{Binding Mangas}" ColumnNum="4" Grid.Row="5">
+      <CellListView.ItemTemplate>
+        <DataTemplate>
+          <CellListViewCell>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+              <ImageRemote  Width="198" Address="{Binding Vertical_Cover}" HorizontalAlignment="Center" />
+              <TextBlock Margin="0,8,0,0" Text="{Binding Title}" HorizontalAlignment="Center" />
+              <TextBlock Margin="0,8,0,0" Text="{Binding Sub_Title}" HorizontalAlignment="Center" />              
+            </StackPanel>
+          </CellListViewCell>
+        </DataTemplate>
+      </CellListView.ItemTemplate>
+    </CellListView>
+	</Grid>
+</UserControl>

@@ -1,0 +1,47 @@
+using Avalonia;
+using Avalonia.ReactiveUI;
+using Avalonia.Threading;
+using Bilibili.Manga.Common;
+using Bilibili.Manga.Model;
+using Bilibili.Manga.WebClient;
+using ReactiveUI;
+using System;
+using System.IO;
+using System.Reflection;
+using System.Threading;
+
+namespace Bilibili.Manga.Avalonia
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            var name = Assembly.GetExecutingAssembly().GetName().Name;
+            using Mutex mutex = new Mutex(true, name, out bool createNew);
+            if (createNew)
+            {
+                if (Runtime.Platform != Platforms.UnSupport)
+                {
+                    RxApp.MainThreadScheduler = AvaloniaScheduler.Instance;
+                    var builder = AppBuilder.Configure<App>()
+                        .UsePlatformDetect()
+                        .UseReactiveUI()
+                        .LogToTrace();
+                    Current.Init();
+                    builder.StartWithClassicDesktopLifetime(args);
+                }
+                else
+                {
+                    var file = Path.Combine(Environment.CurrentDirectory, "!!!!!!!!!!!DONOT SUPPORT YOUR SYSTEM!!!!!!!!!!!");
+                    if (!File.Exists(file))
+                        File.Create(file).Dispose();
+                    Environment.Exit(1);
+                }
+            }
+            else
+            {
+                Environment.Exit(1);
+            }
+        }
+    }
+}

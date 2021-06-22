@@ -1,0 +1,77 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="Bilibili.Manga.Avalonia.Views.UserView">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="auto" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    <StackPanel Grid.Row="0" HorizontalAlignment="Center" Orientation="Vertical" Margin="8"> 
+      <Image Name="userCover" Width="64" Height="64" Source="avares://Bilibili.Manga.Avalonia/Assets/Login/noavatar.png" />
+      <TextBlock Name="userName" FontSize="16" Text="未登录" />
+    </StackPanel>
+    <TabControl Name="homeTab" Grid.Row="1">
+      <TabItem Header="我的追漫" VerticalContentAlignment="Center">
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+          </Grid.RowDefinitions>
+          <StackPanel Orientation="Horizontal" Margin="28,0,0,0" Grid.Row="0">
+            <RadioButton IsChecked="True" Name="orderFollow" GroupName="order" CommandParameter="1">追漫顺序</RadioButton>
+            <RadioButton Name="orderUpdate" GroupName="order" CommandParameter="2">更新时间</RadioButton>
+            <RadioButton Name="orderRecent" GroupName="order" CommandParameter="3">最近漫画</RadioButton>
+          </StackPanel>
+          <CellListView Name="followList" ColumnNum="4" Grid.Row="1" Items="{Binding Mangas}">
+            <CellListView.ItemTemplate>
+              <DataTemplate>
+                <CellListViewCell>
+                  <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                    <ImageRemote Width="198" Address="{Binding Vcover}" HorizontalAlignment="Center" />
+                    <TextBlock Margin="0,8,0,0" Text="{Binding Title}" HorizontalAlignment="Center" />
+                    <TextBlock Margin="0,8,0,0" Text="{Binding Sub_Title}" HorizontalAlignment="Center" />
+                  </StackPanel>
+                </CellListViewCell>
+              </DataTemplate>
+            </CellListView.ItemTemplate>
+          </CellListView>
+        </Grid>
+      </TabItem>
+      <TabItem Header="历史记录" VerticalContentAlignment="Center">
+        <CellListView Name="historyList" ColumnNum="4" Grid.Row="1" Items="{Binding HistoryMangas}">
+          <CellListView.ItemTemplate>
+            <DataTemplate>
+              <CellListViewCell>
+              <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <ImageRemote Width="198" Address="{Binding Vcover}" HorizontalAlignment="Center" />
+                <TextBlock Margin="0,8,0,0" Text="{Binding Title}" HorizontalAlignment="Center" />
+                <TextBlock Margin="0,8,0,0" Text="{Binding Sub_Title}" HorizontalAlignment="Center" />
+                <TextBlock Margin="0,8,0,0" Text="{Binding Read_Time}" HorizontalAlignment="Center" />
+              </StackPanel>
+              </CellListViewCell>
+            </DataTemplate>
+          </CellListView.ItemTemplate>
+        </CellListView>
+      </TabItem>
+      <TabItem Header="已购漫画" VerticalContentAlignment="Center">
+        <CellListView Name="buyList" ColumnNum="4" Grid.Row="1" Items="{Binding BuyMangas}">
+          <CellListView.ItemTemplate>
+            <DataTemplate>
+              <CellListViewCell>
+              <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <ImageRemote Width="198" Address="{Binding Vcover}" HorizontalAlignment="Center" />
+                <TextBlock Margin="0,8,0,0" Text="{Binding Comic_Title}" HorizontalAlignment="Center" />
+                <TextBlock Margin="0,8,0,0" Text="{Binding Last_Ord_Title}" HorizontalAlignment="Center" />
+                <TextBlock Margin="0,8,0,0" Text="{Binding Bought_Ep_Count_Title}" HorizontalAlignment="Center" />
+              </StackPanel>
+              </CellListViewCell>
+            </DataTemplate>
+          </CellListView.ItemTemplate>
+        </CellListView>
+      </TabItem>
+    </TabControl>
+  </Grid>
+</UserControl>

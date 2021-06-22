@@ -1,0 +1,65 @@
+<WindowBase xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Bilibili.Manga.Avalonia.MainWindow"
+				xmlns:views="using:Bilibili.Manga.Avalonia.Views"
+        Title="Bilibili漫画">
+	<TabControl Name="homeTab">
+		<TabItem VerticalContentAlignment="Center">
+			<TabItem.Header>
+				<StackPanel Orientation="Horizontal">
+					<Image Width="32" Source="/Assets/Icon/ic_menu_search.png" />
+					<TextBlock Text="搜索" VerticalAlignment="Center" />
+				</StackPanel>
+			</TabItem.Header>
+			<views:SearchView />
+		</TabItem>
+		<TabItem VerticalContentAlignment="Center" IsSelected="True">
+			<TabItem.Header>
+				<StackPanel Orientation="Horizontal">
+					<Image Width="32" Source="/Assets/Icon/ic_menu_home.png" />
+					<TextBlock Text="推荐" VerticalAlignment="Center" />
+				</StackPanel>
+			</TabItem.Header>
+			<views:RecommandView />
+		</TabItem>
+    <TabItem VerticalContentAlignment="Center">
+      <TabItem.Header>
+        <StackPanel Orientation="Horizontal">
+          <Image Width="32" Source="/Assets/Icon/ic_menu_home.png" />
+          <TextBlock Text="排行" VerticalAlignment="Center" />
+        </StackPanel>
+      </TabItem.Header>
+      <views:RankView />
+    </TabItem>
+    <TabItem VerticalContentAlignment="Center">
+      <TabItem.Header>
+        <StackPanel Orientation="Horizontal">
+          <Image Width="32" Source="/Assets/Icon/ic_menu_home.png" />
+          <TextBlock Text="新作" VerticalAlignment="Center" />
+        </StackPanel>
+      </TabItem.Header>
+      <views:NewView />
+    </TabItem>
+		<TabItem VerticalContentAlignment="Center">
+			<TabItem.Header>
+				<StackPanel Orientation="Horizontal">
+					<Image Width="32" Source="/Assets/Icon/ic_menu_channel.png" />
+					<TextBlock Text="分区" VerticalAlignment="Center" />
+				</StackPanel>
+			</TabItem.Header>
+			<views:PartsView />
+		</TabItem>
+		<TabItem VerticalContentAlignment="Center">
+			<TabItem.Header>
+				<StackPanel Orientation="Horizontal">
+					<Image Width="32" Source="/Assets/Icon/ic_menu_user.png" />
+					<TextBlock Text="我的" VerticalAlignment="Center" />
+				</StackPanel>
+			</TabItem.Header>
+			<views:UserView />
+		</TabItem>
+	</TabControl>
+</WindowBase>

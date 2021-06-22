@@ -1,0 +1,51 @@
+<WindowBase xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="320"
+        x:Class="Bilibili.Manga.Avalonia.Windows.LoginWindow"
+        Title="登录">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="auto" />
+      <RowDefinition Height="*" />
+      <RowDefinition Height="auto" />
+    </Grid.RowDefinitions>
+    <Grid DataContext="Logo" HorizontalAlignment="Center">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <Image Name="Ic22" Grid.Column="0" Source="/Assets/Login/ic_22.png" />
+      <Image Name="Ic22Hide" Grid.Column="0" IsVisible="False" Source="/Assets/Login/ic_22_hide.png" />
+      <Image Grid.Column="1" Source="/Assets/Login/ic_bili_logo.png" />
+      <Image Name="Ic33" Grid.Column="2" Source="/Assets/Login/ic_33.png" />
+      <Image Name="Ic33Hide" Grid.Column="2" IsVisible="False" Source="/Assets/Login/ic_33_hide.png" />
+    </Grid>
+    <Grid Grid.Row="1" Name="PwdLogin">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="auto" />
+        <RowDefinition Height="auto" />
+      </Grid.RowDefinitions>
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+        <Label>账号名：</Label>
+        <TextBox Width="280" Text="{Binding Account}" />
+      </StackPanel>
+      <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+        <Label>密码：</Label>
+        <TextBox PasswordChar="*" Width="280" Text="{Binding Passwd}" Name="pwdBox" />
+      </StackPanel>
+      <TextBlock Foreground="Red" Grid.Row="2" Text="{Binding Message}" />
+    </Grid>
+    <Grid Grid.Row="1" Name="QrLogin">
+      <Image Source="{Binding QrSource}" />
+    </Grid>
+    <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+      <Button Margin="4" Command="{Binding OnButtonClick}" CommandParameter="login">登录</Button>
+      <Button Margin="4" Command="{Binding OnButtonClick}" CommandParameter="qr">扫码登录</Button>
+    </StackPanel>
+  </Grid>
+</WindowBase>
