@@ -24,6 +24,7 @@ namespace Bilibili.Manga.WebClient.Api
             }
             catch (Exception ex)
             {
+                LogManager.Instance.LogError("Follow", ex);
                 return new Respone<List<FollowMange>>
                 {
                     Code = -1,
@@ -43,6 +44,7 @@ namespace Bilibili.Manga.WebClient.Api
             }
             catch (Exception ex)
             {
+                LogManager.Instance.LogError("Buy", ex);
                 return new Respone<List<HistoryManga>>
                 {
                     Code = -1,
@@ -62,6 +64,7 @@ namespace Bilibili.Manga.WebClient.Api
             }
             catch (Exception ex)
             {
+                LogManager.Instance.LogError("History", ex);
                 return new Respone<List<HistoryManga>>
                 {
                     Code = -1,
@@ -81,6 +84,7 @@ namespace Bilibili.Manga.WebClient.Api
             }
             catch (Exception ex)
             {
+                LogManager.Instance.LogError("Follow", ex);
                 return new Respone<JObject>
                 {
                     Code = -1,
@@ -100,6 +104,7 @@ namespace Bilibili.Manga.WebClient.Api
             }
             catch (Exception ex)
             {
+                LogManager.Instance.LogError("UnFollow", ex);
                 return new Respone<JObject>
                 {
                     Code = -1,
@@ -119,6 +124,7 @@ namespace Bilibili.Manga.WebClient.Api
             }
             catch (Exception ex)
             {
+                LogManager.Instance.LogError("Delete", ex);
                 return new Respone<JObject>
                 {
                     Code = -1,

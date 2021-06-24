@@ -99,6 +99,7 @@ namespace Bilibili.Manga.WebClient.Api
             }
             catch (Exception ex)
             {
+                LogManager.Instance.LogError("PollQRAuthInfo", ex);
                 return new Respone<TokenInfo>
                 {
                     Code = -1,
@@ -118,6 +119,7 @@ namespace Bilibili.Manga.WebClient.Api
             }
             catch (Exception ex)
             {
+                LogManager.Instance.LogError("GetQRAuthInfo", ex);
                 return new Respone<QRAuthInfo>
                 {
                     Code = -1,

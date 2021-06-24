@@ -82,15 +82,6 @@ namespace Bilibili.Manga.Common
         {
             return !IsEmpty(obj);
         }
-        public static T ToObject<T>(this object token)
-        {
-            try
-            {
-                return token.ToString().ToObject<T>();
-            }
-            catch { }
-            return default;
-        }
         public static JObject ToJObject(this string json)
         {
             try

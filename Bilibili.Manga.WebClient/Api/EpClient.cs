@@ -23,6 +23,7 @@ namespace Bilibili.Manga.WebClient.Api
             }
             catch (Exception ex)
             {
+                LogManager.Instance.LogError("GetImages", ex);
                 return new Respone<EpInfo>
                 {
                     Code = -1,
@@ -42,6 +43,7 @@ namespace Bilibili.Manga.WebClient.Api
             }
             catch (Exception ex)
             {
+                LogManager.Instance.LogError("BuyInfo", ex);
                 return new Respone<BuyInfo>
                 {
                     Code = -1,
@@ -76,6 +78,7 @@ namespace Bilibili.Manga.WebClient.Api
             }
             catch (Exception ex)
             {
+                LogManager.Instance.LogError("Buy", ex);
                 return new Respone<object>
                 {
                     Code = -1,
@@ -95,6 +98,7 @@ namespace Bilibili.Manga.WebClient.Api
             }
             catch (Exception ex)
             {
+                LogManager.Instance.LogError("GetUrl", ex);
                 return new Respone<List<ImageToken>>
                 {
                     Code = -1,

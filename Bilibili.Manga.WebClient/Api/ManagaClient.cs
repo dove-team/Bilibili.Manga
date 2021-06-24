@@ -25,6 +25,7 @@ namespace Bilibili.Manga.WebClient.Api
             }
             catch (Exception ex)
             {
+                LogManager.Instance.LogError("GetTypeList", ex);
                 return new Respone<List<PartManga>>
                 {
                     Code = -1,
@@ -44,6 +45,7 @@ namespace Bilibili.Manga.WebClient.Api
             }
             catch (Exception ex)
             {
+                LogManager.Instance.LogError("GetInfo", ex);
                 return new Respone<MangaInfo>
                 {
                     Code = -1,
@@ -63,6 +65,7 @@ namespace Bilibili.Manga.WebClient.Api
             }
             catch (Exception ex)
             {
+                LogManager.Instance.LogError("Recommand", ex);
                 return new Respone<Recommand>
                 {
                     Code = -1,
@@ -81,6 +84,7 @@ namespace Bilibili.Manga.WebClient.Api
             }
             catch (Exception ex)
             {
+                LogManager.Instance.LogError("Rank", ex);
                 return new Respone<List<Mange>>
                 {
                     Code = -1,
@@ -100,6 +104,7 @@ namespace Bilibili.Manga.WebClient.Api
             }
             catch (Exception ex)
             {
+                LogManager.Instance.LogError("New", ex);
                 return new Respone<List<PartManga>>
                 {
                     Code = -1,
@@ -119,6 +124,7 @@ namespace Bilibili.Manga.WebClient.Api
             }
             catch (Exception ex)
             {
+                LogManager.Instance.LogError("Search", ex);
                 return new Respone<Search>
                 {
                     Code = -1,
@@ -137,6 +143,7 @@ namespace Bilibili.Manga.WebClient.Api
             }
             catch (Exception ex)
             {
+                LogManager.Instance.LogError("GetType", ex);
                 return new Respone<Types>
                 {
                     Code = -1,

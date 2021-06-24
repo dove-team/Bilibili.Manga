@@ -18,6 +18,7 @@ namespace Bilibili.Manga.Avalonia.ViewModels
 {
     public sealed class LoginViewModel : ReactiveObject, IDisposable
     {
+        private bool isQrLogin=false;
         public string Passwd { get; set; }
         public string Account { get; set; }
         private Bitmap _qrSource;
@@ -88,6 +89,7 @@ namespace Bilibili.Manga.Avalonia.ViewModels
             {
                 case "qr":
                     {
+                        isQrLogin = true;
                         QrLoginCallback?.Invoke(this, true);
                         var result = await UserManager.GetQRAuthInfo();
                         if (result.Code == 0)
@@ -126,51 +128,55 @@ namespace Bilibili.Manga.Avalonia.ViewModels
                 case "login":
                     {
                         QrLoginCallback?.Invoke(this, false);
-                        if (Account.IsNotEmpty() && Passwd.IsNotEmpty())
+                        if (!isQrLogin)
                         {
-                            var callbackModel = await UserManager.LoginV3(Account, Passwd);
-                            if (callbackModel.IsNotEmpty())
+                            if (Account.IsNotEmpty() && Passwd.IsNotEmpty())
                             {
-                                switch (callbackModel.Status)
+                                var callbackModel = await UserManager.LoginV3(Account, Passwd);
+                                if (callbackModel.IsNotEmpty())
                                 {
-                                    case LoginStatus.Success:
-                                        {
-                                            var result = await UserManager.GetUserInfo(SettingHelper.UserID);
-                                            var userInfo = result.Data.Card;
-                                            SettingHelper.UserInfo = userInfo;
-                                            StaticValue.CurrentUserId = userInfo.Mid.ToInt64();
-                                            StaticValue.CurrentUserName = userInfo.Name;
-                                            var userHead = await Current.HttpClient.GetImageStream(userInfo.Face, userInfo.Mid);
-                                            SettingHelper.UserHead = userHead;
-                                            StaticValue.CurrentUserIcon = new Bitmap(userHead);
-                                            if (StaticValue.LoginEvent != null)
-                                                StaticValue.LoginEvent.Execute();
-                                            Message = "登录成功！";
-                                            Callback?.Invoke(this);
-                                            break;
-                                        }
-                                    case LoginStatus.Fail:
-                                    case LoginStatus.Error:
-                                        {
-                                            Message = "登录失败，失败信息：" + callbackModel.Message;
-                                            break;
-                                        }
-                                    case LoginStatus.NeedCaptcha:
-                                        {
-                                            Message = "登录需要验证码，请使用网页登录";
-                                            break;
-                                        }
+                                    switch (callbackModel.Status)
+                                    {
+                                        case LoginStatus.Success:
+                                            {
+                                                var result = await UserManager.GetUserInfo(SettingHelper.UserID);
+                                                var userInfo = result.Data.Card;
+                                                SettingHelper.UserInfo = userInfo;
+                                                StaticValue.CurrentUserId = userInfo.Mid.ToInt64();
+                                                StaticValue.CurrentUserName = userInfo.Name;
+                                                var userHead = await Current.HttpClient.GetImageStream(userInfo.Face, userInfo.Mid);
+                                                SettingHelper.UserHead = userHead;
+                                                StaticValue.CurrentUserIcon = new Bitmap(userHead);
+                                                if (StaticValue.LoginEvent != null)
+                                                    StaticValue.LoginEvent.Execute();
+                                                Message = "登录成功！";
+                                                Callback?.Invoke(this);
+                                                break;
+                                            }
+                                        case LoginStatus.Fail:
+                                        case LoginStatus.Error:
+                                            {
+                                                Message = "登录失败，失败信息：" + callbackModel.Message;
+                                                break;
+                                            }
+                                        case LoginStatus.NeedCaptcha:
+                                            {
+                                                Message = "登录需要验证码，请使用网页登录";
+                                                break;
+                                            }
+                                    }
+                                }
+                                else
+                                {
+                                    await MessageBox.Show(Window, "提示", "请求网络失败！！");
                                 }
                             }
                             else
                             {
-                                await MessageBox.Show(Window, "提示", "请求网络失败！！");
+                                await MessageBox.Show(Window, "提示", "请输入账号密码！");
                             }
                         }
-                        else
-                        {
-                            await MessageBox.Show(Window, "提示", "请输入账号密码！");
-                        }
+                        isQrLogin = false;
                         break;
                     }
             }
