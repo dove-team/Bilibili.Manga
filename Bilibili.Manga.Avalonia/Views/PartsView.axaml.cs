@@ -7,6 +7,7 @@ using Bilibili.Manga.Avalonia.ViewModels;
 using Bilibili.Manga.Model.Home;
 using Bilibili.Manga.Avalonia.Windows;
 using Avalonia.Input;
+using Avalonia.Interactivity;
 
 namespace Bilibili.Manga.Avalonia.Views
 {
@@ -34,7 +35,13 @@ namespace Bilibili.Manga.Avalonia.Views
             PriceList = this.FindControl<HorizontalItemsRepeater>("priceList");
             var listBox = this.FindControl<CellListView>("listBox");
             listBox.ItemClick += ListBox_ItemClick;
+            listBox.ScrollEnd += ListBox_ScrollEnd;
             GetTypeTags();
+        }
+        private void ListBox_ScrollEnd(object? sender, RoutedEventArgs e)
+        {
+            ViewModel.Page++;
+            ViewModel.GetList();
         }
         private void ListBox_ItemClick(object? sender, ViewRoutedEventArgs e)
         {

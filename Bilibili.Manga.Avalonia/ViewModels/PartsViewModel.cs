@@ -51,7 +51,8 @@ namespace Bilibili.Manga.Avalonia.ViewModels
              {
                  try
                  {
-                     Mangas.Clear();
+                     if (Page == 1)
+                         Mangas.Clear();
                      var styleId = Tags.FirstOrDefault(x => x.Tag == "styles").Id;
                      var areaId = Tags.FirstOrDefault(x => x.Tag == "areas").Id;
                      var isFinish = Tags.FirstOrDefault(x => x.Tag == "status").Id;
