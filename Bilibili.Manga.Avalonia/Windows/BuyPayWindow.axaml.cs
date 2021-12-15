@@ -6,6 +6,7 @@ using Bilibili.Manga.Common;
 using Bilibili.Manga.WebClient.Api;
 using Avalonia;
 using Avalonia.Extensions.Controls;
+using Newtonsoft.Json.Linq;
 using HA = Avalonia.Layout.HorizontalAlignment;
 
 namespace Bilibili.Manga.Avalonia.Windows
@@ -17,7 +18,7 @@ namespace Bilibili.Manga.Avalonia.Windows
         private BuyInfo Info { get; set; }
         private TextBlock TbTitle { get; set; }
         private StackPanel Panel { get; set; }
-        public event CallbackIntObject Callback;
+        public event CallbackJObjectObject Callback;
         public BuyPayWindow()
         {
             AvaloniaXamlLoader.Load(this);
@@ -66,7 +67,8 @@ namespace Bilibili.Manga.Avalonia.Windows
                 if (result.IsSuccess())
                 {
                     await MessageBox.Show("提示", "购买成功！");
-                    Callback?.Invoke(this, EpId);
+                    JObject obj = JObject.FromObject(new { cid = Info.Comic_Id, id = EpId });
+                    Callback?.Invoke(this, obj);
                     this.Close();
                 }
                 else if (result.IsNotEmpty())

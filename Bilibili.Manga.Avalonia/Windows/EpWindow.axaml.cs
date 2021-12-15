@@ -7,8 +7,10 @@ using Bilibili.Manga.Common;
 using Bilibili.Manga.Model.Common;
 using Bilibili.Manga.WebClient;
 using Bilibili.Manga.WebClient.Api;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,7 +20,9 @@ namespace Bilibili.Manga.Avalonia.Windows
     {
         private int LoadCount = 0;
         private bool IsLoading = false;
+        private int EpId { get; set; }
         private EpClient Client { get; }
+        private int ComicId { get; set; }
         private StackPanel Panel { get; set; }
         private List<EpImage> Images { get; }
         public EpWindow()
@@ -42,8 +46,10 @@ namespace Bilibili.Manga.Avalonia.Windows
                     GetNext();
             }
         }
-        public void Init(int epId)
+        public void Init(int comicId, int epId)
         {
+            this.EpId = epId;
+            this.ComicId = comicId;
             Dispatcher.UIThread.InvokeAsync(async () =>
             {
                 var result = await Client.GetImages(epId);
@@ -55,25 +61,33 @@ namespace Bilibili.Manga.Avalonia.Windows
                 }
                 else if (result.IsSuccess(1))
                 {
-                    if (await MessageBox.Show("提示", "需要购买此章节") == true)
+                    if (ApiProvider.IsLogin)
                     {
-                        var info = await Client.BuyInfo(epId);
-                        if (info.Code == 0)
+                        if (await MessageBox.Show("提示", "需要购买此章节") == true)
                         {
-                            BuyPayWindow buyPayWindow = new BuyPayWindow();
-                            buyPayWindow.Callback += BuyPayWindow_Callback;
-                            buyPayWindow.InitData(epId, info.Data);
-                            await buyPayWindow.ShowDialog(this);
+                            var info = await Client.BuyInfo(epId);
+                            if (info.Code == 0)
+                            {
+                                BuyPayWindow buyPayWindow = new BuyPayWindow();
+                                buyPayWindow.Callback += BuyPayWindow_Callback;
+                                buyPayWindow.InitData(epId, info.Data);
+                                await buyPayWindow.ShowDialog(this);
+                            }
+                            else
+                            {
+                                await MessageBox.Show("错误", "获取购买信息失败!");
+                                this.Close();
+                            }
                         }
                         else
                         {
-                            await MessageBox.Show("错误", "获取购买信息失败!");
                             this.Close();
                         }
                     }
                     else
                     {
                         this.Close();
+                        await MessageBox.Show("提示", "未登录账号!!");
                     }
                 }
                 else
@@ -82,9 +96,11 @@ namespace Bilibili.Manga.Avalonia.Windows
                 }
             });
         }
-        private void BuyPayWindow_Callback(object sender, int value)
+        private void BuyPayWindow_Callback(object sender, JObject data)
         {
-            Init(value);
+            var cid = data["cid"].ToInt32();
+            var id = data["id"].ToInt32();
+            Init(cid, id);
         }
         private async void GetNext()
         {
@@ -120,6 +136,11 @@ namespace Bilibili.Manga.Avalonia.Windows
             }
             catch { }
             return imageCtl;
+        }
+        protected override async void OnClosing(CancelEventArgs e)
+        {
+            await Client.AddHostory(ComicId, EpId);
+            base.OnClosing(e);
         }
     }
 }

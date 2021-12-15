@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.ReactiveUI;
 using Avalonia.Threading;
+using Avalonia.Extensions.Controls;
 using Bilibili.Manga.Common;
 using Bilibili.Manga.Model;
 using Bilibili.Manga.WebClient;
@@ -25,6 +26,8 @@ namespace Bilibili.Manga.Avalonia
                     RxApp.MainThreadScheduler = AvaloniaScheduler.Instance;
                     var builder = AppBuilder.Configure<App>()
                         .UsePlatformDetect()
+                        .UseDoveExtensions()
+                        .UseChineseInputSupport()
                         .UseReactiveUI()
                         .LogToTrace();
                     Current.Init();

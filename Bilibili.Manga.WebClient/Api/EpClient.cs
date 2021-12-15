@@ -106,5 +106,18 @@ namespace Bilibili.Manga.WebClient.Api
                 };
             }
         }
+        public async Task AddHostory(int comic_id, int ep_id)
+        {
+            try
+            {
+                var url = "https://manga.bilibili.com/twirp/bookshelf.v1.Bookshelf/AddHistory";
+                string content = $"comic_id={comic_id}&ep_id={ep_id}";
+                await HttpClient.PostResults(url, content);
+            }
+            catch (Exception ex)
+            {
+                LogManager.Instance.LogError("AddHostory", ex);
+            }
+        }
     }
 }

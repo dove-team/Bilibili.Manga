@@ -16,8 +16,9 @@ namespace Bilibili.Manga.Avalonia.ViewModels
     public sealed class PartsViewModel : ReactiveObject, IDisposable
     {
         public int Page { get; set; } = 1;
-        public ManagaClient Client { get; }
         public List<TagItem> Tags { get; }
+        public ManagaClient Client { get; }
+        public bool IsFinish { get; set; } = false;
         private ObservableCollection<PartManga> mangas = new ObservableCollection<PartManga>();
         public ObservableCollection<PartManga> Mangas
         {
@@ -40,14 +41,17 @@ namespace Bilibili.Manga.Avalonia.ViewModels
         }
         private void SelectRadio(TagItem param)
         {
-            var item = Tags.FirstOrDefault(x => x.Tag == param.Tag);
-            item.Id = param.Id;
-            item.Name = param.Name;
-            GetList();
+            if (IsFinish)
+            {
+                var item = Tags.FirstOrDefault(x => x.Tag == param.Tag);
+                item.Id = param.Id;
+                item.Name = param.Name;
+                GetList();
+            }
         }
-        public async void GetList()
+        public void GetList()
         {
-            await Dispatcher.UIThread.InvokeAsync(async () =>
+            Dispatcher.UIThread.InvokeAsync(async () =>
              {
                  try
                  {

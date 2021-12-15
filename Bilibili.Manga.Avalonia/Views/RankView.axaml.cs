@@ -1,7 +1,9 @@
 using Avalonia.Controls;
 using Avalonia.Extensions.Controls;
+using Avalonia.Extensions.Event;
 using Avalonia.Input;
 using Avalonia.Markup.Xaml;
+using Avalonia.Threading;
 using Bilibili.Manga.Avalonia.Windows;
 using Bilibili.Manga.Common;
 using Bilibili.Manga.Model.Common;
@@ -18,13 +20,16 @@ namespace Bilibili.Manga.Avalonia.Views
             Client = new ManagaClient();
             InitializeComponent();
         }
-        private async void InitializeComponent()
+        private void InitializeComponent()
         {
-            var listBox = this.FindControl<CellListView>("listBox");
+            var listBox = this.FindControl<GridView>("listBox");
             listBox.ItemClick += ListBox_ItemClick;
-            var result = await Client.Rank();
-            if (result.IsSuccess())
-                listBox.Items = result.Data;
+            Dispatcher.UIThread.InvokeAsync(async () =>
+            {
+                var result = await Client.Rank();
+                if (result.IsSuccess())
+                    listBox.Items = result.Data;
+            });
         }
         private void ListBox_ItemClick(object? sender, ViewRoutedEventArgs e)
         {

@@ -3,10 +3,11 @@ using Avalonia.Controls;
 using System;
 using System.Diagnostics;
 using System.IO;
+using AeroWindow = Avalonia.Extensions.Controls.AeroWindow;
 
 namespace Bilibili.Manga.Avalonia
 {
-    public class WindowBase : Window
+    public class WindowBase : AeroWindow
     {
         public WindowBase()
         {

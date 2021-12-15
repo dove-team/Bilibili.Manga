@@ -14,6 +14,18 @@ namespace Bilibili.Manga.Common
 {
     public static class Extension
     {
+        public static int ToInt32(this object obj)
+        {
+            if (obj is int value)
+                return value;
+            else
+            {
+                if (int.TryParse(obj.ToString(), out value))
+                    return value;
+                else
+                    return Convert.ToInt32(obj.ToString());
+            }
+        }
         public static long ToInt64(this object obj)
         {
             try

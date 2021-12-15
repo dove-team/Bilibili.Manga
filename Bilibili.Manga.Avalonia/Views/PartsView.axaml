@@ -1,9 +1,9 @@
 <UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Bilibili.Manga.Avalonia.Views.PartsView">
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+			 x:Class="Bilibili.Manga.Avalonia.Views.PartsView">
 	<Grid Margin="8">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="auto" />
@@ -48,18 +48,16 @@
 				</DataTemplate>
 			</HorizontalItemsRepeater.ItemTemplate>
 		</HorizontalItemsRepeater>
-    <CellListView Name="listBox" Items="{Binding Mangas}" ColumnNum="4" Grid.Row="5">
-      <CellListView.ItemTemplate>
-        <DataTemplate>
-          <CellListViewCell>
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
-              <ImageRemote  Width="198" Address="{Binding Vertical_Cover}" HorizontalAlignment="Center" />
-              <TextBlock Margin="0,8,0,0" Text="{Binding Title}" HorizontalAlignment="Center" />
-              <TextBlock Margin="0,8,0,0" Text="{Binding Sub_Title}" HorizontalAlignment="Center" />              
-            </StackPanel>
-          </CellListViewCell>
-        </DataTemplate>
-      </CellListView.ItemTemplate>
-    </CellListView>
+		<GridView Name="listBox" Items="{Binding Mangas}" ColumnNum="4" Grid.Row="5" Background="Transparent">
+			<GridView.ItemTemplate>
+				<DataTemplate>
+					<StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+						<ImageBox Width="198" Source="{Binding Vertical_Cover}" HorizontalAlignment="Center" />
+						<TextBlock Margin="0,8,0,0" Text="{Binding Title}" HorizontalAlignment="Center" />
+						<TextBlock Margin="0,8,0,0" Text="{Binding Sub_Title}" HorizontalAlignment="Center" />
+					</StackPanel>
+				</DataTemplate>
+			</GridView.ItemTemplate>
+		</GridView>
 	</Grid>
 </UserControl>

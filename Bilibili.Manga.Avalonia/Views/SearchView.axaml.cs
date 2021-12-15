@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Extensions.Controls;
+using Avalonia.Extensions.Event;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
@@ -17,8 +18,8 @@ namespace Bilibili.Manga.Avalonia.Views
     {
         private int Page { get; set; } = 1;
         private ManagaClient Client { get; }
+        private GridView ListBox { get; set; }
         private TextBox Keywords { get; set; }
-        private CellListView ListBox { get; set; }
         private ObservableCollection<MangeItem> SearchList { get; }
         public SearchView()
         {
@@ -30,7 +31,7 @@ namespace Bilibili.Manga.Avalonia.Views
         private void InitializeComponent()
         {
             var btnSearch = this.FindControl<Button>("btnSearch");
-            ListBox = this.FindControl<CellListView>("listBox");
+            ListBox = this.FindControl<GridView>("listBox");
             Keywords = this.FindControl<TextBox>("txtKeywords");
             btnSearch.Click += BtnSearch_Click;
             ListBox.Items = SearchList;

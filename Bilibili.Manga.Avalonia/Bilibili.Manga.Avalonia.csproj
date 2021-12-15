@@ -1,13 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <Nullable>enable</Nullable>
         <SignAssembly>false</SignAssembly>
         <ApplicationIcon>icon.ico</ApplicationIcon>
         <AssemblyName>Bilibili.Manga.Avalonia</AssemblyName>
         <RootNamespace>Bilibili.Manga.Avalonia</RootNamespace>
-        <Version>1.0.3</Version>
+        <Version>1.1.0</Version>
+    </PropertyGroup> 
+    <PropertyGroup>
+        <Platforms>AnyCPU;x64;x86;arm</Platforms>
+        <RuntimeIdentifiers>win-x64;win-x86;win-arm</RuntimeIdentifiers>
     </PropertyGroup>
     <ItemGroup>
         <None Include="..\.editorconfig" Link=".editorconfig" />
@@ -30,14 +34,15 @@
         </Content>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="0.10.6" />
-        <PackageReference Include="Avalonia.Desktop" Version="0.10.6" />
-        <PackageReference Include="Avalonia.Diagnostics" Version="0.10.6" />
-        <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.6" />
-        <PackageReference Include="Dove.Avalonia.Controls.Extensions" Version="1.2.5" />
-        <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
+        <PackageReference Include="Avalonia" Version="0.10.10" />
+        <PackageReference Include="Avalonia.Desktop" Version="0.10.10" />
+        <PackageReference Include="Avalonia.Diagnostics" Version="0.10.10" />
+        <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.10" />
+        <PackageReference Include="Dove.Avalonia.Controls.Extensions" Version="1.5.2" />
+        <PackageReference Include="Dove.Avalonia.Controls.Extensions.ChineseInputSupoort" Version="1.1.0" />
+        <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
         <PackageReference Include="ZXing.Net" Version="0.16.6" />
-        <PackageReference Include="runtime.osx.10.10-x64.CoreCompat.System.Drawing" Version="5.8.64" />
+        <PackageReference Include="runtime.osx.10.10-x64.CoreCompat.System.Drawing" Version="6.0.5.128" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\Bilibili.Manga.Common\Bilibili.Manga.Common.csproj" />

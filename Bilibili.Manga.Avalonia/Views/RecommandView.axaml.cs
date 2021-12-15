@@ -9,13 +9,14 @@ using Bilibili.Manga.WebClient.Api;
 using DynamicData;
 using System.Collections.ObjectModel;
 using Avalonia.Input;
+using Avalonia.Extensions.Event;
 
 namespace Bilibili.Manga.Avalonia.Views
 {
     public partial class RecommandView : UserControl
     {
         private ManagaClient Client { get; }
-        private CellListView ListBox { get; set; }
+        private GridView ListBox { get; set; }
         private ObservableCollection<Mange> Manges { get; }
         public RecommandView()
         {
@@ -26,7 +27,7 @@ namespace Bilibili.Manga.Avalonia.Views
         }
         private void InitializeComponent()
         {
-            ListBox = this.FindControl<CellListView>("listBox");
+            ListBox = this.FindControl<GridView>("listBox");
             ListBox.Items = Manges;
             ListBox.ItemClick += ListBox_ItemClick;
             LoadData();

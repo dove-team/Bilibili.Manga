@@ -8,6 +8,7 @@ using Bilibili.Manga.Model.Home;
 using Bilibili.Manga.Avalonia.Windows;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using Avalonia.Extensions.Event;
 
 namespace Bilibili.Manga.Avalonia.Views
 {
@@ -33,7 +34,7 @@ namespace Bilibili.Manga.Avalonia.Views
             StatusList = this.FindControl<HorizontalItemsRepeater>("statusList");
             OrderList = this.FindControl<HorizontalItemsRepeater>("orderList");
             PriceList = this.FindControl<HorizontalItemsRepeater>("priceList");
-            var listBox = this.FindControl<CellListView>("listBox");
+            var listBox = this.FindControl<GridView>("listBox");
             listBox.ItemClick += ListBox_ItemClick;
             listBox.ScrollEnd += ListBox_ScrollEnd;
             GetTypeTags();
@@ -70,6 +71,7 @@ namespace Bilibili.Manga.Avalonia.Views
                         StatusList.Items = arr.Status.SetAllTag("status");
                         PriceList.Items = arr.Prices.SetAllTag("prices");
                         OrderList.Items = arr.Orders;
+                        ViewModel.IsFinish = true;
                     }
                 }
                 catch { }

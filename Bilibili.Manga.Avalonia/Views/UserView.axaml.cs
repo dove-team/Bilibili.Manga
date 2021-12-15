@@ -1,8 +1,10 @@
 using Avalonia.Controls;
 using Avalonia.Extensions.Controls;
+using Avalonia.Extensions.Event;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
+using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Bilibili.Manga.Avalonia.ViewModels;
 using Bilibili.Manga.Avalonia.Windows;
@@ -17,10 +19,10 @@ namespace Bilibili.Manga.Avalonia.Views
     public partial class UserView : UserControl
     {
         private Image UserCover { get; set; }
-        private CellListView BuyList { get; set; }
+        private GridView BuyList { get; set; }
         private TextBlock UserName { get; set; }
-        private CellListView FollowList { get; set; }
-        private CellListView HistoryList { get; set; }
+        private GridView FollowList { get; set; }
+        private GridView HistoryList { get; set; }
         private UserViewModel ViewModel { get; }
         public UserView()
         {
@@ -34,17 +36,18 @@ namespace Bilibili.Manga.Avalonia.Views
             UserCover = this.FindControl<Image>("userCover");
             UserName = this.FindControl<TextBlock>("userName");
             UserCover.Tapped += UserCover_Tapped;
+            UserCover.KeyDown += UserCover_Tapped;
             var orderFollow = this.FindControl<RadioButton>("orderFollow");
             orderFollow.Checked += Order_Checked;
             var orderUpdate = this.FindControl<RadioButton>("orderUpdate");
             orderUpdate.Checked += Order_Checked;
             var orderRecent = this.FindControl<RadioButton>("orderRecent");
             orderRecent.Checked += Order_Checked;
-            BuyList = this.FindControl<CellListView>("buyList");
+            BuyList = this.FindControl<GridView>("buyList");
             BuyList.VirtualizationMode = ItemVirtualizationMode.None;
-            FollowList = this.FindControl<CellListView>("followList");
+            FollowList = this.FindControl<GridView>("followList");
             FollowList.VirtualizationMode = ItemVirtualizationMode.None;
-            HistoryList = this.FindControl<CellListView>("historyList");
+            HistoryList = this.FindControl<GridView>("historyList");
             HistoryList.VirtualizationMode = ItemVirtualizationMode.None;
             BuyList.ItemClick += BuyList_ItemClick;
             FollowList.ItemClick += FollowList_ItemClick;
@@ -89,7 +92,7 @@ namespace Bilibili.Manga.Avalonia.Views
                             PopupMenu popupMenu = new PopupMenu
                             {
                                 Tag = manga,
-                                Items = new[] { "É¾³ý¼ÇÂ¼", "²é¿´ÏêÏ¸" }
+                                Items = new[] { "É¾ï¿½ï¿½ï¿½ï¿½Â¼", "ï¿½é¿´ï¿½ï¿½Ï¸" }
                             };
                             popupMenu.ItemClick += PopupMenu_ItemClick;
                             popupMenu.Show(item);
@@ -119,7 +122,7 @@ namespace Bilibili.Manga.Avalonia.Views
                             PopupMenu popupMenu = new PopupMenu
                             {
                                 Tag = manga,
-                                Items = new[] { "È¡Ïû¹Ø×¢" }
+                                Items = new[] { "È¡ï¿½ï¿½ï¿½ï¿½×¢" }
                             };
                             popupMenu.ItemClick += PopupMenu_ItemClick;
                             popupMenu.Show(item);
@@ -140,7 +143,7 @@ namespace Bilibili.Manga.Avalonia.Views
                             {
                                 var result = await ViewModel.Client.Delete(historyManga.Comic_Id);
                                 if (result.IsSuccess())
-                                    await MessageBox.Show("ÌáÊ¾", "É¾³ý¼ÇÂ¼³É¹¦£¡", MessageBoxButtons.Ok);
+                                    await MessageBox.Show("ï¿½ï¿½Ê¾", "É¾ï¿½ï¿½ï¿½ï¿½Â¼ï¿½É¹ï¿½ï¿½ï¿½", MessageBoxButtons.Ok);
                                 ViewModel.GetHistoryData();
                                 break;
                             }
@@ -157,7 +160,7 @@ namespace Bilibili.Manga.Avalonia.Views
                 {
                     var result = await ViewModel.Client.UnFollow(followMange.Comic_Id);
                     if (result.IsSuccess())
-                        await MessageBox.Show("ÌáÊ¾", "È¡Ïû×·Âþ³É¹¦£¡", MessageBoxButtons.Ok);
+                        await MessageBox.Show("ï¿½ï¿½Ê¾", "È¡ï¿½ï¿½×·ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½", MessageBoxButtons.Ok);
                     ViewModel.GetFollowData(1);
                 }
             }
@@ -172,7 +175,7 @@ namespace Bilibili.Manga.Avalonia.Views
             }
             else
             {
-                if (await MessageBox.Show("ÌáÊ¾", "ÊÇ·ñÍË³öÕËºÅ£¿") == true)
+                if (await MessageBox.Show("ï¿½ï¿½Ê¾", "ï¿½Ç·ï¿½ï¿½Ë³ï¿½ï¿½ËºÅ£ï¿½") == true)
                 {
                     SettingHelper.UserID = 0;
                     SettingHelper.UserInfo = null;
@@ -181,7 +184,7 @@ namespace Bilibili.Manga.Avalonia.Views
                     SettingHelper.RefreshToken = string.Empty;
                     var bitmap = new Bitmap(StaticValue.AssetLoader.Open(new Uri("avares://Bilibili.Manga.Avalonia/Assets/Login/noavatar.png")));
                     UserCover.Source = bitmap;
-                    UserName.Text = "Î´µÇÂ¼";
+                    UserName.Text = "Î´ï¿½ï¿½Â¼";
                 }
             }
         }
