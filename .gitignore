@@ -1,2 +1,6 @@
 bin
 obj
+OutputDebug\Debug
+OutputDebug\*.exe
+OutputDebug\Release
+OutputDebug\Publish
