@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
+        <Version>1.1.1</Version>
         <TargetFramework>netstandard2.1</TargetFramework>
-        <Version>1.1.0</Version>
     </PropertyGroup>
     <ItemGroup>
         <None Include="..\.editorconfig" Link=".editorconfig" />
