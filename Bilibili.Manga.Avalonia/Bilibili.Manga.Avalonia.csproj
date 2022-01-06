@@ -58,11 +58,4 @@
             <LinuxPath>/usr/share/applications/Bilibili.Manga.Avalonia.desktop</LinuxPath>
         </Content>
     </ItemGroup>
-	<ItemGroup>
-		<DebDependency Include="libc6" />
-		<DebDependency Include="libgcc1" />
-		<DebDependency Include="libgdiplus" />
-		<DebDependency Include="libstdc++6" />
-		<DebDependency Include="gcc-6-base" />
-	</ItemGroup>
 </Project>
