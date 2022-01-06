@@ -13,6 +13,7 @@ using System.Reactive;
 using System.Timers;
 using ZXing;
 using ZXing.Common;
+using ZXing.Windows.Compatibility;
 
 namespace Bilibili.Manga.Avalonia.ViewModels
 {

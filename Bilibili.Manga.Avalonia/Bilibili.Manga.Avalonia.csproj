@@ -34,15 +34,16 @@
         </Content>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="0.10.10" />
-        <PackageReference Include="Avalonia.Desktop" Version="0.10.10" />
-        <PackageReference Include="Avalonia.Diagnostics" Version="0.10.10" />
-        <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.10" />
-        <PackageReference Include="Dove.Avalonia.Controls.Extensions" Version="1.5.2" />
-        <PackageReference Include="Dove.Avalonia.Controls.Extensions.ChineseInputSupoort" Version="1.1.0" />
+        <PackageReference Include="Avalonia" Version="0.10.11" />
+        <PackageReference Include="Avalonia.Desktop" Version="0.10.11" />
+        <PackageReference Include="Avalonia.Diagnostics" Version="0.10.11" />
+        <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.11" />
+        <PackageReference Include="Dove.Avalonia.Controls.Extensions" Version="1.5.4" />
+        <PackageReference Include="Dove.Avalonia.Controls.Extensions.ChineseInputSupoort" Version="1.1.1" />
         <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
-        <PackageReference Include="ZXing.Net" Version="0.16.6" />
+        <PackageReference Include="ZXing.Net" Version="0.16.7" />
         <PackageReference Include="runtime.osx.10.10-x64.CoreCompat.System.Drawing" Version="6.0.5.128" />
+        <PackageReference Include="ZXing.Net.Bindings.Windows.Compatibility" Version="0.16.10" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\Bilibili.Manga.Common\Bilibili.Manga.Common.csproj" />
@@ -57,4 +58,11 @@
             <LinuxPath>/usr/share/applications/Bilibili.Manga.Avalonia.desktop</LinuxPath>
         </Content>
     </ItemGroup>
+	<ItemGroup>
+		<DebDependency Include="libc6" />
+		<DebDependency Include="libgcc1" />
+		<DebDependency Include="libgdiplus" />
+		<DebDependency Include="libstdc++6" />
+		<DebDependency Include="gcc-6-base" />
+	</ItemGroup>
 </Project>
