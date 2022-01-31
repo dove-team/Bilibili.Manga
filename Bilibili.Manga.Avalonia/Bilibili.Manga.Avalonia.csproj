@@ -14,18 +14,13 @@
         <RuntimeIdentifiers>win-x64;win-x86;win-arm</RuntimeIdentifiers>
     </PropertyGroup>
     <ItemGroup>
+        <AvaloniaResource Include="Assets\**" />
         <None Include="..\.editorconfig" Link=".editorconfig" />
     </ItemGroup>
     <ItemGroup>
-        <AvaloniaResource Include="Assets\**" />
-    </ItemGroup>
-    <ItemGroup>
-        <AvaloniaResource Remove="Assets\icon.ico" />
-    </ItemGroup>
-    <ItemGroup>
         <None Remove="Assets\icon.png" />
-        <None Remove="Assets\Login\noavatar.png" />
         <None Remove="Directory.Build.props" />
+        <None Remove="Assets\Login\noavatar.png" />
         <None Remove="runtime.osx.10.10-x64.CoreCompat.System.Drawing" />
     </ItemGroup>
     <ItemGroup>
@@ -34,20 +29,20 @@
         </Content>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="0.10.11" />
-        <PackageReference Include="Avalonia.Desktop" Version="0.10.11" />
-        <PackageReference Include="Avalonia.Diagnostics" Version="0.10.11" />
-        <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.11" />
-        <PackageReference Include="Dove.Avalonia.Controls.Extensions" Version="1.5.4" />
-        <PackageReference Include="Dove.Avalonia.Controls.Extensions.ChineseInputSupoort" Version="1.1.1" />
-        <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+        <PackageReference Include="Avalonia" Version="0.10.12" />
         <PackageReference Include="ZXing.Net" Version="0.16.7" />
-        <PackageReference Include="runtime.osx.10.10-x64.CoreCompat.System.Drawing" Version="6.0.5.128" />
+        <PackageReference Include="Avalonia.Desktop" Version="0.10.12" />
+        <PackageReference Include="Avalonia.ReactiveUI" Version="0.10.12" />
+        <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+        <PackageReference Include="Avalonia.Diagnostics" Version="0.10.12" />
+        <PackageReference Include="Dove.Avalonia.Controls.Extensions" Version="1.5.7" />
         <PackageReference Include="ZXing.Net.Bindings.Windows.Compatibility" Version="0.16.10" />
+        <PackageReference Include="runtime.osx.10.10-x64.CoreCompat.System.Drawing" Version="6.0.5.128" />
+        <PackageReference Include="Dove.Avalonia.Controls.Extensions.ChineseInputSupoort" Version="1.1.2" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\Bilibili.Manga.Common\Bilibili.Manga.Common.csproj" />
         <ProjectReference Include="..\Bilibili.Manga.Model\Bilibili.Manga.Model.csproj" />
+        <ProjectReference Include="..\Bilibili.Manga.Common\Bilibili.Manga.Common.csproj" />
         <ProjectReference Include="..\Bilibili.Manga.WebClient\Bilibili.Manga.WebClient.csproj" />
     </ItemGroup>
     <ItemGroup>

@@ -4,13 +4,11 @@
         <TargetFramework>netstandard2.1</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-        <None Include="..\.editorconfig" Link=".editorconfig" />
-    </ItemGroup>
-    <ItemGroup>
         <PackageReference Include="PCLCrypto" Version="2.1.40-alpha" />
     </ItemGroup>
     <ItemGroup>
-        <ProjectReference Include="..\Bilibili.Manga.Common\Bilibili.Manga.Common.csproj" />
+        <None Include="..\.editorconfig" Link=".editorconfig" />
         <ProjectReference Include="..\Bilibili.Manga.Model\Bilibili.Manga.Model.csproj" />
+        <ProjectReference Include="..\Bilibili.Manga.Common\Bilibili.Manga.Common.csproj" />
     </ItemGroup>
 </Project>
