@@ -45,14 +45,7 @@
         <ProjectReference Include="..\Bilibili.Manga.WebClient\Bilibili.Manga.WebClient.csproj" />
     </ItemGroup>
     <ItemGroup>
-		<DebDependency Include="libc6" />
-		<DebDependency Include="zlib1g" />
-		<DebDependency Include="libgcc1" />
 		<DebDependency Include="libgdiplus" />
-		<DebDependency Include="libstdc++6" />
-		<DebDependency Include="libgssapi-krb5-2" />
-		<DebDependency Include="libssl1.1 libssl1.0.0" />
-		<DebDependency Include="libicu67 | libicu63 | libicu57 | libicu52" />
 		<Content Include="icon.ico" CopyToPublishDirectory="PreserveNewest">
             <LinuxPath>/usr/share/icons/icon.ico</LinuxPath>
         </Content>

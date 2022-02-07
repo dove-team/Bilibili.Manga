@@ -1,7 +1,9 @@
 .vs
 bin
 obj
-OutputDebug\Debug
-OutputDebug\*.exe
-OutputDebug\Release
-OutputDebug\Publish
+OutputDebug/*.exe
+OutputDebug/*.tar
+OutputDebug/*.tar.gz
+OutputDebug/Debug/*
+OutputDebug/Release/*
+OutputDebug/Publish/*

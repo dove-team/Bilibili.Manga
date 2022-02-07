@@ -3,9 +3,9 @@
 <plist version="1.0">
   <dict>
     <key>CFBundleName</key>
-    <string>Bilibili Manga</string>
+    <string>BiManga</string>
     <key>CFBundleDisplayName</key>
-    <string>Bilibili漫画</string>
+    <string>哔漫画</string>
     <key>CFBundleIdentifier</key>
     <string>com.michael.mac</string>
     <key>CFBundleVersion</key>
@@ -15,7 +15,7 @@
     <key>CFBundleSignature</key>
     <string>????</string>
     <key>CFBundleExecutable</key>
-    <string>Bilibili.Manga.Avalonia</string>
+    <string>Bilibili.Manga</string>
     <key>CFBundleIconFile</key>
     <string>icon.ico</string>
     <key>CFBundleShortVersionString</key>
