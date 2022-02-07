@@ -14,9 +14,24 @@
                     return "更新到 " + Last_Short_Title + " 话";
             }
         }
-        public string Horizontal_Cover { get; set; }
-        public string Square_Cover { get; set; }
-        public string Vertical_Cover { get; set; }
+        private string HorizontalCover;
+        public string Horizontal_Cover
+        {
+            get => HorizontalCover;
+            set => HorizontalCover = value + "@600w.jpg";
+        }
+        private string SquareCover;
+        public string Square_Cover
+        {
+            get => SquareCover;
+            set => SquareCover = value + "@600w.jpg";
+        }
+        private string VerticalCover;
+        public string Vertical_Cover
+        {
+            get => VerticalCover;
+            set => VerticalCover = value + "@600w.jpg";
+        }
         public int Is_Finish { get; set; }
         public decimal Status { get; set; }
         public double Last_Ord { get; set; }
