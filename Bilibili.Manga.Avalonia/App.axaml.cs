@@ -1,5 +1,6 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Extensions.Controls;
 using Avalonia.Markup.Xaml;
 using Bilibili.Manga.Common;
 using ReactiveUI;
@@ -8,7 +9,7 @@ using System.Reactive;
 
 namespace Bilibili.Manga.Avalonia
 {
-    public class App : Application
+    public class App : ApplicationBase
     {
         public override void Initialize()
         {
