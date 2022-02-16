@@ -41,6 +41,11 @@ namespace Bilibili.Manga.WebClient
                 return string.Empty;
             }
         }
+        public async Task<string> GetStringAsync(string url)
+        {
+            using HttpClient HttpClient = new HttpClient();
+            return await HttpClient.GetStringAsync(url);
+        }
         public async Task<Stream> GetImageStream(Uri url)
         {
             try
