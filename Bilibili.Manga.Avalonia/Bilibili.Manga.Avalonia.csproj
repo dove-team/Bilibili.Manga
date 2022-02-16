@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <Version>1.1.4</Version>
+        <Version>1.1.5</Version>
         <Nullable>enable</Nullable>
         <SignAssembly>false</SignAssembly>
         <OutputType>WinExe</OutputType>
@@ -37,7 +37,7 @@
         <PackageReference Include="Dove.Avalonia.Controls.Extensions" Version="1.6.2" />
         <PackageReference Include="ZXing.Net.Bindings.Windows.Compatibility" Version="0.16.10" />
         <PackageReference Include="runtime.osx.10.10-x64.CoreCompat.System.Drawing" Version="6.0.5.128" />
-        <PackageReference Include="Dove.Avalonia.Controls.Extensions.ChineseInputSupoort" Version="1.1.3" />
+        <PackageReference Include="Dove.Avalonia.Controls.Extensions.ChineseInputSupoort" Version="1.1.4" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\Bilibili.Manga.Model\Bilibili.Manga.Model.csproj" />

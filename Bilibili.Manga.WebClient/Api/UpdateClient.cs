@@ -3,6 +3,7 @@ using Bilibili.Manga.Model;
 using Bilibili.Manga.Model.Common;
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -46,6 +47,31 @@ namespace Bilibili.Manga.WebClient.Api
                 LogManager.Instance.LogError("CheckUpdate", ex);
             }
             return updatePath;
+        }
+        public void ApplyNow(string filePath)
+        {
+            try
+            {
+                if (File.Exists(filePath))
+                {
+                    switch (Runtime.Platform)
+                    {
+                        case Platforms.Windows:
+                            Process.Start(filePath);
+                            break;
+                        case Platforms.Linux:
+
+                            break;
+                        case Platforms.MacOS:
+
+                            break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LogManager.Instance.LogError("ApplyNow", ex);
+            }
         }
         private string CurrentSystemTag
         {

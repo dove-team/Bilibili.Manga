@@ -1,3 +1,4 @@
+using Avalonia;
 using Avalonia.Extensions.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
@@ -5,7 +6,9 @@ using Bilibili.Manga.Common;
 using Bilibili.Manga.WebClient;
 using Bilibili.Manga.WebClient.Api;
 using System;
+using System.Diagnostics;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace Bilibili.Manga.Avalonia
 {
@@ -13,7 +16,6 @@ namespace Bilibili.Manga.Avalonia
     {
         private UpdateClient Client { get; }
         private bool AutoUpdate { get; set; }
-        private string UpdatePackage { get; set; }
         public MainWindow()
         {
             AvaloniaXamlLoader.Load(this);
@@ -24,13 +26,13 @@ namespace Bilibili.Manga.Avalonia
             base.OnInitialized();
             Dispatcher.UIThread.InvokeAsync(async () =>
             {
-                UpdatePackage = await Client.CheckUpdate();
-                if (UpdatePackage.IsNotEmpty())
+                App.UpdatePackage = await Client.CheckUpdate();
+                if (App.UpdatePackage.IsNotEmpty())
                 {
-                    var result = await MessageBox.Show(this, "提示", "存在新版本客户端，将自动下载，是否在下载完毕后自动安装？");
+                    var result = await MessageBox.Show(this, "提示", "存在新版本客户端，是否在下载进行更新？");
                     AutoUpdate = result == true;
                     DownloadManager.Instance.ProgressComplete += Instance_ProgressComplete;
-                    await DownloadManager.Instance.Create(UpdatePackage).ConfigureAwait(false);
+                    await DownloadManager.Instance.Create(App.UpdatePackage).ConfigureAwait(false);
                 }
             });
         }
@@ -40,7 +42,15 @@ namespace Bilibili.Manga.Avalonia
             {
                 if (File.Exists(filePath))
                 {
-
+                    Dispatcher.UIThread.InvokeAsync(async () =>
+                    {
+                        if (await MessageBox.Show(this, "提示", "下载新版本完毕，是否安装？") == true)
+                        {
+                            Client.ApplyNow(filePath);
+                            await Task.Delay(800);
+                            Process.GetCurrentProcess().Kill();
+                        }
+                    });
                 }
             }
         }
