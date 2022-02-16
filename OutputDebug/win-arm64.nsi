@@ -2,7 +2,7 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "ßÙÂþ»­"
-!define PRODUCT_VERSION "1.1.2"
+!define PRODUCT_VERSION "1.1.4"
 !define PRODUCT_PUBLISHER "michael_eddy"
 !define PRODUCT_WEB_SITE "https://github.com/michael-eddy"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\Bilibili.Manga.Avalonia.exe"
@@ -31,8 +31,7 @@
 !insertmacro MUI_UNPAGE_INSTFILES
 
 ; Language files
-!insertmacro MUI_LANGUAGE "SimpChinese"
-!insertmacro MUI_LANGUAGE "TradChinese"
+!insertmacro MUI_LANGUAGE "English"
 
 ; MUI end ------
 
@@ -170,7 +169,7 @@ Section "MainSection" SEC01
   File "Publish\win-arm64\Microsoft.Win32.Registry.dll"
   File "Publish\win-arm64\Microsoft.Win32.SystemEvents.dll"
   File "Publish\win-arm64\mscordaccore.dll"
-  File "Publish\win-arm64\mscordaccore_arm64_arm64_6.0.121.56705.dll"
+  File "Publish\win-arm64\mscordaccore_arm64_arm64_6.0.222.6406.dll"
   File "Publish\win-arm64\mscordbi.dll"
   File "Publish\win-arm64\mscorlib.dll"
   File "Publish\win-arm64\mscorrc.dll"
@@ -643,7 +642,7 @@ Section Uninstall
   Delete "$INSTDIR\mscorrc.dll"
   Delete "$INSTDIR\mscorlib.dll"
   Delete "$INSTDIR\mscordbi.dll"
-  Delete "$INSTDIR\mscordaccore_arm64_arm64_6.0.121.56705.dll"
+  Delete "$INSTDIR\mscordaccore_arm64_arm64_6.0.222.6406.dll"
   Delete "$INSTDIR\mscordaccore.dll"
   Delete "$INSTDIR\Microsoft.Win32.SystemEvents.dll"
   Delete "$INSTDIR\Microsoft.Win32.Registry.dll"

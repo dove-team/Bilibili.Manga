@@ -2,7 +2,7 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "ßÙÂþ»­"
-!define PRODUCT_VERSION "1.1.2"
+!define PRODUCT_VERSION "1.1.4"
 !define PRODUCT_PUBLISHER "michael_eddy"
 !define PRODUCT_WEB_SITE "https://github.com/michael-eddy"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\Bilibili.Manga.Avalonia.exe"
@@ -212,7 +212,7 @@ Section "MainSection" SEC01
   File "Publish\win-x86\Microsoft.Win32.Registry.dll"
   File "Publish\win-x86\Microsoft.Win32.SystemEvents.dll"
   File "Publish\win-x86\mscordaccore.dll"
-  File "Publish\win-x86\mscordaccore_x86_x86_6.0.121.56705.dll"
+  File "Publish\win-x86\mscordaccore_x86_x86_6.0.222.6406.dll"
   File "Publish\win-x86\mscordbi.dll"
   File "Publish\win-x86\mscorlib.dll"
   File "Publish\win-x86\mscorrc.dll"
@@ -689,7 +689,7 @@ Section Uninstall
   Delete "$INSTDIR\mscorrc.dll"
   Delete "$INSTDIR\mscorlib.dll"
   Delete "$INSTDIR\mscordbi.dll"
-  Delete "$INSTDIR\mscordaccore_x86_x86_6.0.121.56705.dll"
+  Delete "$INSTDIR\mscordaccore_x86_x86_6.0.222.6406.dll"
   Delete "$INSTDIR\mscordaccore.dll"
   Delete "$INSTDIR\Microsoft.Win32.SystemEvents.dll"
   Delete "$INSTDIR\Microsoft.Win32.Registry.dll"
