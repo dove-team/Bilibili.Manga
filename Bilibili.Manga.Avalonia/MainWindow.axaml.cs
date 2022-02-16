@@ -15,7 +15,6 @@ namespace Bilibili.Manga.Avalonia
     public partial class MainWindow : WindowBase
     {
         private UpdateClient Client { get; }
-        private bool AutoUpdate { get; set; }
         public MainWindow()
         {
             AvaloniaXamlLoader.Load(this);
@@ -29,10 +28,11 @@ namespace Bilibili.Manga.Avalonia
                 App.UpdatePackage = await Client.CheckUpdate();
                 if (App.UpdatePackage.IsNotEmpty())
                 {
-                    var result = await MessageBox.Show(this, "提示", "存在新版本客户端，是否在下载进行更新？");
-                    AutoUpdate = result == true;
-                    DownloadManager.Instance.ProgressComplete += Instance_ProgressComplete;
-                    await DownloadManager.Instance.Create(App.UpdatePackage).ConfigureAwait(false);
+                    if (true == await MessageBox.Show(this, "提示", "存在新版本客户端，是否在下载进行更新？"))
+                    {
+                        DownloadManager.Instance.ProgressComplete += Instance_ProgressComplete;
+                        await DownloadManager.Instance.Create(App.UpdatePackage).ConfigureAwait(false);
+                    }
                 }
             });
         }
@@ -44,11 +44,10 @@ namespace Bilibili.Manga.Avalonia
                 {
                     Dispatcher.UIThread.InvokeAsync(async () =>
                     {
-                        if (await MessageBox.Show(this, "提示", "下载新版本完毕，是否安装？") == true)
+                        if (await MessageBox.Show(this, "提示", "下载新版本完毕，是否安装（由于系统限制需要手动进行安装）？") == true)
                         {
                             Client.ApplyNow(filePath);
-                            await Task.Delay(800);
-                            Process.GetCurrentProcess().Kill();
+                            App.Exit();
                         }
                     });
                 }

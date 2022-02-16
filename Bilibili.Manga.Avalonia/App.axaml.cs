@@ -6,10 +6,8 @@ using Bilibili.Manga.WebClient;
 using Bilibili.Manga.WebClient.Api;
 using ReactiveUI;
 using System;
-using System.Diagnostics;
 using System.IO;
 using System.Reactive;
-using System.Threading.Tasks;
 
 namespace Bilibili.Manga.Avalonia
 {
@@ -35,10 +33,15 @@ namespace Bilibili.Manga.Avalonia
         {
             if (File.Exists(UpdatePackage))
             {
+                await MessageBox.Show("提示", "下载新版本完毕，由于系统限制需要手动进行安装。", MessageBoxButtons.Ok);
                 new UpdateClient().ApplyNow(UpdatePackage);
-                await Task.Delay(800);
-                Process.GetCurrentProcess().Kill();
+                Exit();
             }
+        }
+        public static void Exit()
+        {
+            if (App.Current.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+                desktop.Shutdown();
         }
         private void ExceptionHandler(Exception exception)
         {

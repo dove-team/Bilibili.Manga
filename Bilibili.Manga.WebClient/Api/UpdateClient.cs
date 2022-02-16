@@ -57,14 +57,29 @@ namespace Bilibili.Manga.WebClient.Api
                     switch (Runtime.Platform)
                     {
                         case Platforms.Windows:
-                            Process.Start(filePath);
-                            break;
+                            {
+                                using Process process = new Process();
+                                process.StartInfo.FileName = "explorer.exe";
+                                process.StartInfo.Arguments = $" /select, {filePath}";
+                                process.Start();
+                                break;
+                            }
                         case Platforms.Linux:
-
-                            break;
+                            {
+                                using Process process = new Process();
+                                process.StartInfo.FileName = "";
+                                process.StartInfo.Arguments = $"nautilus {filePath}";
+                                process.Start();
+                                break;
+                            }
                         case Platforms.MacOS:
-
-                            break;
+                            {
+                                using Process process = new Process();
+                                process.StartInfo.FileName = "open";
+                                process.StartInfo.Arguments = $" /select, {filePath}";
+                                process.Start();
+                                break;
+                            }
                     }
                 }
             }
