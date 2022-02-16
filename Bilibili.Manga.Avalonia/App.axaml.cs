@@ -1,4 +1,3 @@
-using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Extensions.Controls;
 using Avalonia.Markup.Xaml;

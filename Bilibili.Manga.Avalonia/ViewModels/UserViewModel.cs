@@ -13,8 +13,8 @@ namespace Bilibili.Manga.Avalonia.ViewModels
 {
     public sealed class UserViewModel : ReactiveObject, IDisposable
     {
-        private int Page { get; set; } = 1;
         public UserClient Client { get; }
+        private int Page { get; set; } = 1;
         private ObservableCollection<FollowMange> mangas = new ObservableCollection<FollowMange>();
         private ObservableCollection<HistoryManga> buyMangas = new ObservableCollection<HistoryManga>();
         private ObservableCollection<HistoryManga> historyMangas = new ObservableCollection<HistoryManga>();

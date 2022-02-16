@@ -16,15 +16,20 @@ namespace Bilibili.Manga.Common
     {
         public static int ToInt32(this object obj)
         {
-            if (obj is int value)
-                return value;
-            else
+            try
             {
-                if (int.TryParse(obj.ToString(), out value))
+                if (obj is int value)
                     return value;
                 else
-                    return Convert.ToInt32(obj.ToString());
+                {
+                    if (int.TryParse(obj.ToString(), out value))
+                        return value;
+                    else
+                        return Convert.ToInt32(obj.ToString());
+                }
             }
+            catch {  }
+            return 0;
         }
         public static long ToInt64(this object obj)
         {
@@ -35,16 +40,8 @@ namespace Bilibili.Manga.Common
                 else
                     return Convert.ToInt64(obj.ToString());
             }
-            catch { return default; }
-        }
-        public static object FindItem(this IList objs, int index)
-        {
-            try
-            {
-                return objs[index];
-            }
             catch { }
-            return default;
+            return 0;
         }
         public static bool IsSuccess<T>(this Respone<T> respone, int code = 0)
         {

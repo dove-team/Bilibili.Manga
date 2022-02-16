@@ -6,11 +6,13 @@
         public TagItem(string tag)
         {
             Id = "-1";
-            Name = "全部";
             Tag = tag;
+            Name = "全部";
+            Checked = true;
         }
         public string Id { get; set; }
-        public string Name { get; set; }
         public string Tag { get; set; }
+        public string Name { get; set; }
+        public bool Checked { get; set; }
     }
 }

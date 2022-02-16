@@ -30,13 +30,15 @@ namespace Bilibili.Manga.Avalonia.Windows
             BtnFollow.Click += BtnFollow_Click;
             ListBox.ItemClick += ListBox_ItemClick;
         }
-        private void ListBox_ItemClick(object? sender, ViewRoutedEventArgs e)
+        private async void ListBox_ItemClick(object? sender, ViewRoutedEventArgs e)
         {
             if (e.ClickMouse == MouseButton.Left && e.ClickItem is GridViewItem viewItem && viewItem.Content is EpListItem ep)
             {
                 EpWindow epWindow = new EpWindow();
                 epWindow.Init(comicId, ep.Id);
-                epWindow.ShowDialog(this);
+                this.Hide();
+                await epWindow.ShowDialog(this);
+                this.Show();
             }
         }
         private async void BtnFollow_Click(object? sender, RoutedEventArgs e)
@@ -46,17 +48,17 @@ namespace Bilibili.Manga.Avalonia.Windows
                 case "取消追漫":
                     {
                         var result = await ViewModel.UserClient.UnFollow(comicId);
+                        ViewModel.UpdateFollow(false);
                         if (result.IsSuccess())
                             await MessageBox.Show("提示", "取消追漫成功！", MessageBoxButtons.Ok);
-                        ViewModel.UpdateFollow(false);
                         break;
                     }
                 case "追漫":
                     {
                         var result = await ViewModel.UserClient.Follow(comicId);
+                        ViewModel.UpdateFollow(true);
                         if (result.IsSuccess())
                             await MessageBox.Show("提示", "追漫成功！", MessageBoxButtons.Ok);
-                        ViewModel.UpdateFollow(true);
                         break;
                     }
             }

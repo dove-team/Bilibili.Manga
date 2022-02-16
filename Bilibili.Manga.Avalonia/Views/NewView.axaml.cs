@@ -38,8 +38,8 @@ namespace Bilibili.Manga.Avalonia.Views
                 if (item.Content is PartManga manga)
                 {
                     MangaWindow window = new MangaWindow();
-                    window.Show();
                     window.InitData(manga.Season_Id);
+                    window.Show();
                 }
             }
         }

@@ -19,7 +19,7 @@ namespace Bilibili.Manga.Avalonia.ViewModels
 {
     public sealed class LoginViewModel : ReactiveObject, IDisposable
     {
-        private bool isQrLogin=false;
+        private bool isQrLogin = false;
         public string Passwd { get; set; }
         public string Account { get; set; }
         private Bitmap _qrSource;
@@ -44,7 +44,7 @@ namespace Bilibili.Manga.Avalonia.ViewModels
         public LoginViewModel(Window window)
         {
             Window = window;
-            Timer = new Timer(6000);
+            Timer = new Timer(2000);
             Timer.Elapsed += Timer_Elapsed;
             UserManager = new LoginClient { };
             OnButtonClick = ReactiveCommand.Create<string>(ButtonClick);

@@ -9,6 +9,7 @@ using Bilibili.Manga.Avalonia.Windows;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Extensions.Event;
+using System.Linq;
 
 namespace Bilibili.Manga.Avalonia.Views
 {
@@ -70,8 +71,11 @@ namespace Bilibili.Manga.Avalonia.Views
                         AreaList.Items = arr.Areas.SetAllTag("areas");
                         StatusList.Items = arr.Status.SetAllTag("status");
                         PriceList.Items = arr.Prices.SetAllTag("prices");
-                        OrderList.Items = arr.Orders;
+                        var orders = arr.Orders;
+                        orders.FirstOrDefault().Checked = true;
+                        OrderList.Items = orders;
                         ViewModel.IsFinish = true;
+                        ViewModel.GetList();
                     }
                 }
                 catch { }

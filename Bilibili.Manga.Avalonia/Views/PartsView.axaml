@@ -16,35 +16,35 @@
 		<HorizontalItemsRepeater Name="styleList" Grid.Row="0">
 			<HorizontalItemsRepeater.ItemTemplate>
 				<DataTemplate>
-					<RadioButton Command="{Binding $parent[Grid].DataContext.OnSelectRadio}" CommandParameter="{Binding}" GroupName="style" Content="{Binding Name}" />
+					<RadioButton IsChecked="{Binding Checked}" Command="{Binding $parent[Grid].DataContext.OnSelectRadio}" CommandParameter="{Binding}" GroupName="style" Content="{Binding Name}" />
 				</DataTemplate>
 			</HorizontalItemsRepeater.ItemTemplate>
 		</HorizontalItemsRepeater>
 		<HorizontalItemsRepeater Name="areaList" Grid.Row="1">
 			<HorizontalItemsRepeater.ItemTemplate>
 				<DataTemplate>
-					<RadioButton Command="{Binding $parent[Grid].DataContext.OnSelectRadio}" CommandParameter="{Binding}" GroupName="area" Content="{Binding Name}" />
+					<RadioButton IsChecked="{Binding Checked}" Command="{Binding $parent[Grid].DataContext.OnSelectRadio}" CommandParameter="{Binding}" GroupName="area" Content="{Binding Name}" />
 				</DataTemplate>
 			</HorizontalItemsRepeater.ItemTemplate>
 		</HorizontalItemsRepeater>
 		<HorizontalItemsRepeater Name="statusList" Grid.Row="2">
 			<HorizontalItemsRepeater.ItemTemplate>
 				<DataTemplate>
-					<RadioButton Command="{Binding $parent[Grid].DataContext.OnSelectRadio}" CommandParameter="{Binding}" GroupName="status" Content="{Binding Name}" />
+					<RadioButton IsChecked="{Binding Checked}" Command="{Binding $parent[Grid].DataContext.OnSelectRadio}" CommandParameter="{Binding}" GroupName="status" Content="{Binding Name}" />
 				</DataTemplate>
 			</HorizontalItemsRepeater.ItemTemplate>
 		</HorizontalItemsRepeater>
 		<HorizontalItemsRepeater Name="orderList" Grid.Row="3">
 			<HorizontalItemsRepeater.ItemTemplate>
 				<DataTemplate>
-					<RadioButton Command="{Binding $parent[Grid].DataContext.OnSelectRadio}" CommandParameter="{Binding}" GroupName="order" Content="{Binding Name}" />
+					<RadioButton IsChecked="{Binding Checked}" Command="{Binding $parent[Grid].DataContext.OnSelectRadio}" CommandParameter="{Binding}" GroupName="order" Content="{Binding Name}" />
 				</DataTemplate>
 			</HorizontalItemsRepeater.ItemTemplate>
 		</HorizontalItemsRepeater>
 		<HorizontalItemsRepeater Name="priceList" Grid.Row="4">
 			<HorizontalItemsRepeater.ItemTemplate>
 				<DataTemplate>
-					<RadioButton Command="{Binding $parent[Grid].DataContext.OnSelectRadio}" CommandParameter="{Binding}" GroupName="price" Content="{Binding Name}" />
+					<RadioButton IsChecked="{Binding Checked}" Command="{Binding $parent[Grid].DataContext.OnSelectRadio}" CommandParameter="{Binding}" GroupName="price" Content="{Binding Name}" />
 				</DataTemplate>
 			</HorizontalItemsRepeater.ItemTemplate>
 		</HorizontalItemsRepeater>
