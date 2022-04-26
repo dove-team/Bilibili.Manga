@@ -2,14 +2,13 @@ using Avalonia;
 using Avalonia.ReactiveUI;
 using Avalonia.Threading;
 using Avalonia.Extensions.Controls;
-using Bilibili.Manga.Common;
-using Bilibili.Manga.Model;
 using Bilibili.Manga.WebClient;
 using ReactiveUI;
 using System;
 using System.IO;
 using System.Reflection;
 using System.Threading;
+using Avalonia.Extensions.Utils;
 
 namespace Bilibili.Manga.Avalonia
 {
