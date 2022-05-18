@@ -2,7 +2,7 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "ßÙÂþ»­"
-!define PRODUCT_VERSION "1.1.6"
+!define PRODUCT_VERSION "1.1.7"
 !define PRODUCT_PUBLISHER "michael_eddy"
 !define PRODUCT_WEB_SITE "https://github.com/michael-eddy"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\Bilibili.Manga.Avalonia.exe"
