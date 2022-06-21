@@ -8,7 +8,8 @@ using System;
 using System.IO;
 using System.Reflection;
 using System.Threading;
-using Avalonia.Extensions.Utils;
+using PCLUntils;
+using PCLUntils.Plantform;
 
 namespace Bilibili.Manga.Avalonia
 {
@@ -20,7 +21,7 @@ namespace Bilibili.Manga.Avalonia
             using Mutex mutex = new Mutex(true, name, out bool createNew);
             if (createNew)
             {
-                if (Runtime.Platform != Platforms.UnSupport)
+                if (PlantformUntils.Platform != Platforms.UnSupport)
                 {
                     RxApp.MainThreadScheduler = AvaloniaScheduler.Instance;
                     var builder = AppBuilder.Configure<App>()
