@@ -19,7 +19,7 @@ namespace Bilibili.Manga.Avalonia.Views
         private int Page { get; set; } = 1;
         private ManagaClient Client { get; }
         private GridView ListBox { get; set; }
-        private TextBox Keywords { get; set; }
+        private EditTextView Keywords { get; set; }
         private ObservableCollection<MangeItem> SearchList { get; }
         public SearchView()
         {
@@ -32,7 +32,7 @@ namespace Bilibili.Manga.Avalonia.Views
         {
             var btnSearch = this.FindControl<Button>("btnSearch");
             ListBox = this.FindControl<GridView>("listBox");
-            Keywords = this.FindControl<TextBox>("txtKeywords");
+            Keywords = this.FindControl<EditTextView>("txtKeywords");
             btnSearch.Click += BtnSearch_Click;
             ListBox.Items = SearchList;
             ListBox.ItemClick += ListBox_ItemClick;

@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using Avalonia.Extensions.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
