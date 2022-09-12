@@ -2,7 +2,7 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "ßÙÂþ»­"
-!define PRODUCT_VERSION "1.2.0"
+!define PRODUCT_VERSION "1.2.1"
 !define PRODUCT_PUBLISHER "michael_eddy"
 !define PRODUCT_WEB_SITE "https://github.com/michael-eddy"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\Bilibili.Manga.Avalonia.exe"
@@ -172,7 +172,7 @@ Section "MainSection" SEC01
   File "Publish\win-arm64\Microsoft.Win32.Registry.dll"
   File "Publish\win-arm64\Microsoft.Win32.SystemEvents.dll"
   File "Publish\win-arm64\mscordaccore.dll"
-  File "Publish\win-arm64\mscordaccore_arm64_arm64_6.0.622.26707.dll"
+  File "Publish\win-arm64\mscordaccore_arm64_arm64_6.0.822.36306.dll"
   File "Publish\win-arm64\mscordbi.dll"
   File "Publish\win-arm64\mscorlib.dll"
   File "Publish\win-arm64\mscorrc.dll"
