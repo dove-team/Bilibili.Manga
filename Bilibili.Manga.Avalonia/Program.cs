@@ -21,7 +21,7 @@ namespace Bilibili.Manga.Avalonia
             using Mutex mutex = new Mutex(true, name, out bool createNew);
             if (createNew)
             {
-                if (PlantformUntils.Platform != Platforms.UnSupport)
+                if (PlantformUntils.System != Platforms.UnSupport)
                 {
                     RxApp.MainThreadScheduler = AvaloniaScheduler.Instance;
                     var builder = AppBuilder.Configure<App>()

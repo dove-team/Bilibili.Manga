@@ -34,10 +34,8 @@ namespace Bilibili.Manga.WebClient
                 Timeout = int.MaxValue,
                 BufferBlockSize = 10240,
                 ParallelDownload = true,
-                OnTheFlyDownload = false,
                 MaxTryAgainOnFailover = int.MaxValue,
                 MaximumBytesPerSecond = long.MaxValue,
-                TempDirectory = Path.Combine(Environment.CurrentDirectory, "temp"),
                 RequestConfiguration =
                 {
                     Accept = "*/*",
