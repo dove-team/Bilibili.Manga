@@ -3,9 +3,9 @@
 <plist version="1.0">
   <dict>
     <key>CFBundleName</key>
-    <string>BiManga</string>
+    <string>BiliManga</string>
     <key>CFBundleDisplayName</key>
-    <string>哔漫画</string>
+    <string>Bilibili漫画</string>
     <key>CFBundleIdentifier</key>
     <string>com.michael.mac</string>
     <key>CFBundleVersion</key>

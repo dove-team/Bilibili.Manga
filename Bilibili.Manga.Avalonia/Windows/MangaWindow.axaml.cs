@@ -30,15 +30,13 @@ namespace Bilibili.Manga.Avalonia.Windows
             BtnFollow.Click += BtnFollow_Click;
             ListBox.ItemClick += ListBox_ItemClick;
         }
-        private async void ListBox_ItemClick(object? sender, ViewRoutedEventArgs e)
+        private void ListBox_ItemClick(object? sender, ViewRoutedEventArgs e)
         {
             if (e.ClickMouse == MouseButton.Left && e.ClickItem is GridViewItem viewItem && viewItem.Content is EpListItem ep)
             {
                 EpWindow epWindow = new EpWindow();
                 epWindow.Init(comicId, ep.Id);
-                this.Hide();
-                await epWindow.ShowDialog(this);
-                this.Show();
+                epWindow.Show();
             }
         }
         private async void BtnFollow_Click(object? sender, RoutedEventArgs e)

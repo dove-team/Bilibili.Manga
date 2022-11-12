@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Extensions.Controls;
+using Avalonia.Input;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media.Imaging;
 using Avalonia.Threading;
@@ -20,6 +21,7 @@ namespace Bilibili.Manga.Avalonia.Windows
     {
         private int LoadCount = 0;
         private bool IsLoading = false;
+        private ScrollViewer scrollViewer;
         private int EpId { get; set; }
         private EpClient Client { get; }
         private int ComicId { get; set; }
@@ -36,7 +38,27 @@ namespace Bilibili.Manga.Avalonia.Windows
         {
             Panel = this.FindControl<StackPanel>("panel");
             if (Panel.Parent is ScrollViewer scrollViewer)
+            {
+                this.scrollViewer = scrollViewer;
                 scrollViewer.ScrollChanged += ScrollViewer_ScrollChanged;
+            }
+            this.KeyDown += EpWindow_KeyDown;
+        }
+        private void EpWindow_KeyDown(object? sender, KeyEventArgs e)
+        {
+            switch (e.Key)
+            {
+                case Key.End:
+                    scrollViewer.ScrollToEnd();
+                    break;
+                case Key.Home:
+                    scrollViewer.ScrollToHome();
+                    break;
+                case Key.Up:
+                    break;
+                case Key.Down:
+                    break;
+            }
         }
         private void ScrollViewer_ScrollChanged(object? sender, ScrollChangedEventArgs e)
         {

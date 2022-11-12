@@ -6,8 +6,8 @@
         <OutputType>WinExe</OutputType>
         <ApplicationIcon>icon.ico</ApplicationIcon>
         <TargetFramework>net6.0</TargetFramework>
-        <AssemblyName>Bilibili.Manga.Avalonia</AssemblyName>
-        <RootNamespace>Bilibili.Manga.Avalonia</RootNamespace>
+        <AssemblyName>Bilibili.Manga</AssemblyName>
+        <RootNamespace>Bilibili.Manga</RootNamespace>
     </PropertyGroup> 
     <PropertyGroup>
         <Platforms>AnyCPU;x64;x86;arm</Platforms>
