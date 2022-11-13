@@ -1,6 +1,6 @@
 ﻿using Bilibili.Manga.Common;
-using Bilibili.Manga.Model;
 using Bilibili.Manga.Model.Common;
+using PCLUntils;
 using System;
 using System.Diagnostics;
 using System.IO;

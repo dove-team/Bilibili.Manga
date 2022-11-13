@@ -4,12 +4,12 @@ using Avalonia.Extensions.Event;
 using Avalonia.Input;
 using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
-using Bilibili.Manga.Avalonia.Windows;
+using Bilibili.Manga.Windows;
 using Bilibili.Manga.Common;
 using Bilibili.Manga.Model.Home;
 using Bilibili.Manga.WebClient.Api;
 
-namespace Bilibili.Manga.Avalonia.Views
+namespace Bilibili.Manga.Views
 {
     public partial class NewView : UserControl
     {

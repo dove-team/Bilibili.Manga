@@ -3,14 +3,14 @@
   xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
 			 mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-			 x:Class="Bilibili.Manga.Avalonia.Views.UserView">
+			 x:Class="Bilibili.Manga.Views.UserView">
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="auto" />
       <RowDefinition Height="*" />
     </Grid.RowDefinitions>
     <StackPanel Grid.Row="0" HorizontalAlignment="Center" Orientation="Vertical" Margin="8">
-      <Image Name="userCover" Width="64" Height="64" Source="avares://Bilibili.Manga.Avalonia/Assets/Login/noavatar.png" />
+      <Image Name="userCover" Width="64" Height="64" Source="avares://Bilibili.Manga/Assets/Login/noavatar.png" />
       <TextBlock Name="userName" FontSize="16" Text="未登录" />
     </StackPanel>
     <TabControl Name="homeTab" Grid.Row="1">

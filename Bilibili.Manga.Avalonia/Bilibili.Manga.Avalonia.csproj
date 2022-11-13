@@ -8,6 +8,7 @@
         <TargetFramework>net6.0</TargetFramework>
         <AssemblyName>Bilibili.Manga</AssemblyName>
         <RootNamespace>Bilibili.Manga</RootNamespace>
+        <PackagePrefix>$([System.Text.RegularExpressions.Regex]::Replace($(AssemblyName), "\B[A-Z]", "-$0").ToLower())</PackagePrefix>
     </PropertyGroup> 
     <PropertyGroup>
         <Platforms>AnyCPU;x64;x86;arm</Platforms>
@@ -19,6 +20,7 @@
     </ItemGroup>
     <ItemGroup>
         <None Remove="Assets\icon.png" />
+        <None Remove="Bilibili.Manga.desktop" />
         <None Remove="Directory.Build.props" />
         <None Remove="Assets\Login\noavatar.png" />
     </ItemGroup>
@@ -48,7 +50,7 @@
 		<Content Include="icon.ico" CopyToPublishDirectory="PreserveNewest">
             <LinuxPath>/usr/share/icons/icon.ico</LinuxPath>
         </Content>
-        <Content Include="Bilibili.Manga.Avalonia.desktop" CopyToPublishDirectory="PreserveNewest">
+        <Content Include="Bilibili.Manga.desktop" CopyToPublishDirectory="PreserveNewest">
             <LinuxPath>/usr/share/applications/Bilibili.Manga.Avalonia.desktop</LinuxPath>
         </Content>
     </ItemGroup>

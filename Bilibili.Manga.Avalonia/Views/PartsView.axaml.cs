@@ -3,15 +3,15 @@ using Avalonia.Extensions.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
 using Bilibili.Manga.Common;
-using Bilibili.Manga.Avalonia.ViewModels;
+using Bilibili.Manga.ViewModels;
 using Bilibili.Manga.Model.Home;
-using Bilibili.Manga.Avalonia.Windows;
+using Bilibili.Manga.Windows;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Extensions.Event;
 using System.Linq;
 
-namespace Bilibili.Manga.Avalonia.Views
+namespace Bilibili.Manga.Views
 {
     public partial class PartsView : UserControl
     {

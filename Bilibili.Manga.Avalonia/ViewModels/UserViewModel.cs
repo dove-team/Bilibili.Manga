@@ -9,7 +9,7 @@ using ReactiveUI;
 using System;
 using System.Collections.ObjectModel;
 
-namespace Bilibili.Manga.Avalonia.ViewModels
+namespace Bilibili.Manga.ViewModels
 {
     public sealed class UserViewModel : ReactiveObject, IDisposable
     {

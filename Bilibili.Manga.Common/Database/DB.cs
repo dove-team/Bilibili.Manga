@@ -1,5 +1,7 @@
 ﻿using Bilibili.Manga.Common.Database.Table;
 using Bilibili.Manga.Model;
+using PCLUntils;
+using PCLUntils.Plantform;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -17,10 +19,10 @@ namespace Bilibili.Manga.Common.Database
             {
                 if (_DbPath.IsEmpty())
                 {
-                    if (Runtime.Platform == Platforms.Android)
+                    if (PlantformUntils.System == Platforms.Android)
                         _DbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "data.db");
                     else
-                        _DbPath = Path.Combine(Environment.CurrentDirectory, "data.db");
+                        _DbPath = Path.Combine(Extension.Root, "data.db");
                 }
                 return _DbPath;
             }

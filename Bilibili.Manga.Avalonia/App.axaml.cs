@@ -9,7 +9,7 @@ using System;
 using System.IO;
 using System.Reactive;
 
-namespace Bilibili.Manga.Avalonia
+namespace Bilibili.Manga
 {
     public class App : ApplicationBase
     {
@@ -17,7 +17,7 @@ namespace Bilibili.Manga.Avalonia
         public override void Initialize()
         {
             AvaloniaXamlLoader.Load(this);
-            DownloadManager.Instance.Init(Environment.CurrentDirectory);
+            DownloadManager.Instance.Init(Extension.Root);
             RxApp.DefaultExceptionHandler = Observer.Create<Exception>(ExceptionHandler);
         }
         public override void OnFrameworkInitializationCompleted()

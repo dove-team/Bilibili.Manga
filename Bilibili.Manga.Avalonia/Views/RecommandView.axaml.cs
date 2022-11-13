@@ -3,7 +3,7 @@ using Avalonia.Extensions.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
 using Bilibili.Manga.Common;
-using Bilibili.Manga.Avalonia.Windows;
+using Bilibili.Manga.Windows;
 using Bilibili.Manga.Model.Common;
 using Bilibili.Manga.WebClient.Api;
 using DynamicData;
@@ -11,7 +11,7 @@ using System.Collections.ObjectModel;
 using Avalonia.Input;
 using Avalonia.Extensions.Event;
 
-namespace Bilibili.Manga.Avalonia.Views
+namespace Bilibili.Manga.Views
 {
     public partial class RecommandView : UserControl
     {

@@ -3,17 +3,41 @@ using Bilibili.Manga.Model.Common;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using PCLCrypto;
+using PCLUntils;
+using PCLUntils.Plantform;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace Bilibili.Manga.Common
 {
     public static class Extension
     {
+        public static string Root
+        {
+            get
+            {
+                switch (PlantformUntils.System)
+                {
+                    case Platforms.Windows:
+                        {
+                            var assemblyLocation = Assembly.GetEntryAssembly()?.Location ?? Assembly.GetExecutingAssembly()?.Location;
+                            if (!string.IsNullOrEmpty(assemblyLocation))
+                                return Path.GetDirectoryName(assemblyLocation);
+                            return AppDomain.CurrentDomain.BaseDirectory;
+                        }
+                    default:
+                        {
+                            var root = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                            return Path.Combine(root, ".michael_bilibili");
+                        }
+                }
+            }
+        }
         public static int ToInt32(this object obj)
         {
             try

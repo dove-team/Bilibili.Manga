@@ -15,7 +15,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Bilibili.Manga.Avalonia.Windows
+namespace Bilibili.Manga.Windows
 {
     public partial class EpWindow : WindowBase
     {

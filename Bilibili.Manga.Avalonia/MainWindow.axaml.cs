@@ -10,7 +10,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Bilibili.Manga.Avalonia
+namespace Bilibili.Manga
 {
     public partial class MainWindow : WindowBase
     {

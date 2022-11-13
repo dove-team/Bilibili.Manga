@@ -8,12 +8,4 @@
         Fail,
         Error
     }
-    public enum Platforms
-    {
-        UnSupport,
-        Android,
-        Linux,
-        Windows,
-        MacOS
-    }
 }

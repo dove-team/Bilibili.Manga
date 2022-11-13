@@ -4,6 +4,7 @@
         <TargetFramework>netstandard2.1</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
+        <PackageReference Include="PCLUntils" Version="1.0.7" />
         <PackageReference Include="Serilog" Version="2.12.0" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
         <PackageReference Include="PCLCrypto" Version="2.1.40-alpha" />

@@ -5,14 +5,14 @@ using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
-using Bilibili.Manga.Avalonia.Windows;
+using Bilibili.Manga.Windows;
 using Bilibili.Manga.Common;
 using Bilibili.Manga.Model.Common;
 using Bilibili.Manga.WebClient.Api;
 using DynamicData;
 using System.Collections.ObjectModel;
 
-namespace Bilibili.Manga.Avalonia.Views
+namespace Bilibili.Manga.Views
 {
     public partial class SearchView : UserControl
     {

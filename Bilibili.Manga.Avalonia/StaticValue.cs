@@ -4,7 +4,7 @@ using Avalonia.Platform;
 using ReactiveUI;
 using System.Reactive;
 
-namespace Bilibili.Manga.Avalonia
+namespace Bilibili.Manga
 {
     public sealed class StaticValue
     {

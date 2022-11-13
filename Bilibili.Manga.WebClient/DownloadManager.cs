@@ -74,7 +74,7 @@ namespace Bilibili.Manga.WebClient
             {
                 if (Service != null)
                 {
-                    Service.Clear();
+                    await Service.Clear();
                     Service.DownloadFileCompleted -= OnDownloadFileCompleted;
                 }
                 Service = new DownloadService(configuration);
@@ -89,7 +89,7 @@ namespace Bilibili.Manga.WebClient
         {
             if (array.Count > 0)
             {
-                Directory.Delete(Path.Combine(Environment.CurrentDirectory, "temp"));
+                Directory.Delete(Path.Combine(Extension.Root, "temp"));
                 Service.Clear();
                 foreach (var path in array)
                 {

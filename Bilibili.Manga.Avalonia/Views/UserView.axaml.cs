@@ -6,15 +6,15 @@ using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
-using Bilibili.Manga.Avalonia.ViewModels;
-using Bilibili.Manga.Avalonia.Windows;
+using Bilibili.Manga.ViewModels;
+using Bilibili.Manga.Windows;
 using Bilibili.Manga.Common;
 using Bilibili.Manga.Model.Common;
 using Bilibili.Manga.Model.Info;
 using Bilibili.Manga.WebClient;
 using System;
 
-namespace Bilibili.Manga.Avalonia.Views
+namespace Bilibili.Manga.Views
 {
     public partial class UserView : UserControl
     {
@@ -92,7 +92,7 @@ namespace Bilibili.Manga.Avalonia.Views
                             PopupMenu popupMenu = new PopupMenu
                             {
                                 Tag = manga,
-                                Items = new[] { "ɾ����¼", "�鿴��ϸ" }
+                                Items = new[] { "删除记录", "查看详细" }
                             };
                             popupMenu.ItemClick += PopupMenu_ItemClick;
                             popupMenu.Show(item);
@@ -122,7 +122,7 @@ namespace Bilibili.Manga.Avalonia.Views
                             PopupMenu popupMenu = new PopupMenu
                             {
                                 Tag = manga,
-                                Items = new[] { "ȡ����ע" }
+                                Items = new[] { "取消关注" }
                             };
                             popupMenu.ItemClick += PopupMenu_ItemClick;
                             popupMenu.Show(item);
@@ -143,7 +143,7 @@ namespace Bilibili.Manga.Avalonia.Views
                             {
                                 var result = await ViewModel.Client.Delete(historyManga.Comic_Id);
                                 if (result.IsSuccess())
-                                    await MessageBox.Show("��ʾ", "ɾ����¼�ɹ���", MessageBoxButtons.Ok);
+                                    await MessageBox.Show("提示", "删除记录成功！", MessageBoxButtons.Ok);
                                 ViewModel.GetHistoryData();
                                 break;
                             }
@@ -160,7 +160,7 @@ namespace Bilibili.Manga.Avalonia.Views
                 {
                     var result = await ViewModel.Client.UnFollow(followMange.Comic_Id);
                     if (result.IsSuccess())
-                        await MessageBox.Show("��ʾ", "ȡ��׷���ɹ���", MessageBoxButtons.Ok);
+                        await MessageBox.Show("提示", "取消追漫成功！", MessageBoxButtons.Ok);
                     ViewModel.GetFollowData(1);
                 }
             }
@@ -175,16 +175,16 @@ namespace Bilibili.Manga.Avalonia.Views
             }
             else
             {
-                if (await MessageBox.Show("��ʾ", "�Ƿ��˳��˺ţ�") == true)
+                if (await MessageBox.Show("提示", "是否退出账号？") == true)
                 {
                     SettingHelper.UserID = 0;
                     SettingHelper.UserInfo = null;
                     SettingHelper.AccessKey = string.Empty;
                     SettingHelper.UserHead = string.Empty;
                     SettingHelper.RefreshToken = string.Empty;
-                    var bitmap = new Bitmap(StaticValue.AssetLoader.Open(new Uri("avares://Bilibili.Manga.Avalonia/Assets/Login/noavatar.png")));
+                    var bitmap = new Bitmap(StaticValue.AssetLoader.Open(new Uri("avares://Bilibili.Manga/Assets/Login/noavatar.png")));
                     UserCover.Source = bitmap;
-                    UserName.Text = "δ��¼";
+                    UserName.Text = "未登录";
                 }
             }
         }

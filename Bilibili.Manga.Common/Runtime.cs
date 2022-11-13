@@ -1,4 +1,5 @@
 ﻿using Bilibili.Manga.Model;
+using PCLUntils;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 

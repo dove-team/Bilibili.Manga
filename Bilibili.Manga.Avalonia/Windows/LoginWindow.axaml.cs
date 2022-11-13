@@ -4,10 +4,10 @@ using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Threading;
-using Bilibili.Manga.Avalonia.ViewModels;
+using Bilibili.Manga.ViewModels;
 using Bilibili.Manga.Common;
 
-namespace Bilibili.Manga.Avalonia.Windows
+namespace Bilibili.Manga.Windows
 {
     public partial class LoginWindow : WindowBase
     {

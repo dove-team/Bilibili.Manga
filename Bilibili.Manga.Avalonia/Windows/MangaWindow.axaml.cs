@@ -4,11 +4,11 @@ using Avalonia.Extensions.Event;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
-using Bilibili.Manga.Avalonia.ViewModels;
+using Bilibili.Manga.ViewModels;
 using Bilibili.Manga.Common;
 using Bilibili.Manga.Model.Info;
 
-namespace Bilibili.Manga.Avalonia.Windows
+namespace Bilibili.Manga.Windows
 {
     public partial class MangaWindow : WindowBase
     {

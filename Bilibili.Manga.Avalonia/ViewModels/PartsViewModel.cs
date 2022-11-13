@@ -11,7 +11,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reactive;
 
-namespace Bilibili.Manga.Avalonia.ViewModels
+namespace Bilibili.Manga.ViewModels
 {
     public sealed class PartsViewModel : ReactiveObject, IDisposable
     {

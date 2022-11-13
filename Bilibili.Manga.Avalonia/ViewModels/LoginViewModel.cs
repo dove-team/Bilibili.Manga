@@ -15,7 +15,7 @@ using ZXing;
 using ZXing.Common;
 using ZXing.Windows.Compatibility;
 
-namespace Bilibili.Manga.Avalonia.ViewModels
+namespace Bilibili.Manga.ViewModels
 {
     public sealed class LoginViewModel : ReactiveObject, IDisposable
     {

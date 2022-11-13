@@ -9,7 +9,7 @@ using Avalonia.Extensions.Controls;
 using Newtonsoft.Json.Linq;
 using HA = Avalonia.Layout.HorizontalAlignment;
 
-namespace Bilibili.Manga.Avalonia.Windows
+namespace Bilibili.Manga.Windows
 {
     public partial class BuyPayWindow : WindowBase
     {

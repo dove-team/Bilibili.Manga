@@ -5,7 +5,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 
-namespace Bilibili.Manga.Avalonia
+namespace Bilibili.Manga
 {
     public class WindowBase : AeroWindow
     {
