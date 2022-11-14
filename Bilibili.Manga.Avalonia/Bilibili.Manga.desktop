@@ -1,5 +1,7 @@
 [Desktop Entry]
+Terminal=false
 Name=Bilibili漫画
 Type=Application
-Exec=/usr/share/Bilibili.Manga/Bilibili.Manga
+Categories=AudioVideo;
 Icon=/usr/share/icons/icon.ico
+Exec=sh -c "LC_ALL=C /usr/share/bilibili.manga/Bilibili.Manga"

@@ -17,9 +17,9 @@ namespace Bilibili.Manga.Common
 {
     public static class Extension
     {
-        public static string Root
+        public static string GetRoot(bool isData)
         {
-            get
+            if (isData)
             {
                 switch (PlantformUntils.System)
                 {
@@ -32,10 +32,19 @@ namespace Bilibili.Manga.Common
                         }
                     default:
                         {
-                            var root = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-                            return Path.Combine(root, ".michael_bilibili");
+                            var root = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "bilibili_manga_michael");
+                            if (!Directory.Exists(root))
+                                Directory.CreateDirectory(root);
+                            return root;
                         }
                 }
+            }
+            else
+            {
+                var assemblyLocation = Assembly.GetEntryAssembly()?.Location ?? Assembly.GetExecutingAssembly()?.Location;
+                if (!string.IsNullOrEmpty(assemblyLocation))
+                    return Path.GetDirectoryName(assemblyLocation);
+                return AppDomain.CurrentDomain.BaseDirectory;
             }
         }
         public static int ToInt32(this object obj)

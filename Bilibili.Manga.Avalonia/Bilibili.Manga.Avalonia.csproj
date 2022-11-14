@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <Version>1.2.2</Version>
+        <Version>1.3.0</Version>
         <Nullable>enable</Nullable>
         <SignAssembly>false</SignAssembly>
         <OutputType>WinExe</OutputType>
@@ -50,7 +50,7 @@
 		<Content Include="icon.ico" CopyToPublishDirectory="PreserveNewest">
             <LinuxPath>/usr/share/icons/icon.ico</LinuxPath>
         </Content>
-        <Content Include="Bilibili.Manga.desktop" CopyToPublishDirectory="PreserveNewest">
+        <Content Include="bilibili.manga.desktop" CopyToPublishDirectory="PreserveNewest">
             <LinuxPath>/usr/share/applications/Bilibili.Manga.Avalonia.desktop</LinuxPath>
         </Content>
     </ItemGroup>

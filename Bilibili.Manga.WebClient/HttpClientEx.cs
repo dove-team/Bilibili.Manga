@@ -106,7 +106,7 @@ namespace Bilibili.Manga.WebClient
                 var bytes = await GetImageStream(url);
                 if (fileName.IsNotEmpty())
                 {
-                    string savePath = string.Format("{0}{1}", fileName, Path.GetExtension(url));
+                    string savePath = Path.Combine(Extension.GetRoot(true), $"{fileName}{Path.GetExtension(url)}");
                     FileInfo fileInfo = new FileInfo(savePath);
                     if (fileInfo.Exists)
                         fileInfo.Delete();
