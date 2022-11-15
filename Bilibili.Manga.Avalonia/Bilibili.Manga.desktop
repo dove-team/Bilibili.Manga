@@ -3,5 +3,5 @@ Terminal=false
 Name=Bilibili漫画
 Type=Application
 Categories=AudioVideo;
-Icon=/usr/share/icons/icon.ico
+Icon=/usr/share/icons/bilibili_manga.png
 Exec=sh -c "LC_ALL=C /usr/share/bilibili.manga/Bilibili.Manga"
