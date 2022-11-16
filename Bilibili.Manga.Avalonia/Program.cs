@@ -36,7 +36,7 @@ namespace Bilibili.Manga
                 }
                 else
                 {
-                    var file = Path.Combine(Extension.Root, "!!!!!!!!!!!DONOT SUPPORT YOUR SYSTEM!!!!!!!!!!!");
+                    var file = Path.Combine(Extension.GetRoot(true), "!!!!!!!!!!!DONOT SUPPORT YOUR SYSTEM!!!!!!!!!!!");
                     if (!File.Exists(file))
                         File.Create(file).Dispose();
                     Environment.Exit(1);

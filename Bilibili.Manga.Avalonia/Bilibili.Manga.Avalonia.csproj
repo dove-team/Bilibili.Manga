@@ -1,30 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <Version>1.2.2</Version>
-        <Nullable>enable</Nullable>
-        <SignAssembly>false</SignAssembly>
+        <Version>1.3.0</Version>
+        <Platforms>AnyCPU</Platforms>
         <OutputType>WinExe</OutputType>
-        <ApplicationIcon>icon.ico</ApplicationIcon>
+        <SignAssembly>false</SignAssembly>
         <TargetFramework>net6.0</TargetFramework>
         <AssemblyName>Bilibili.Manga</AssemblyName>
+        <ApplicationIcon>icon.ico</ApplicationIcon>
         <RootNamespace>Bilibili.Manga</RootNamespace>
         <PackagePrefix>$([System.Text.RegularExpressions.Regex]::Replace($(AssemblyName), "\B[A-Z]", "-$0").ToLower())</PackagePrefix>
     </PropertyGroup> 
-    <PropertyGroup>
-        <Platforms>AnyCPU;x64;x86;arm</Platforms>
-        <RuntimeIdentifiers>win-x64;win-x86;win-arm</RuntimeIdentifiers>
-    </PropertyGroup>
     <ItemGroup>
-        <AvaloniaResource Include="Assets\**" />
-        <None Include="..\.editorconfig" Link=".editorconfig" />
-    </ItemGroup>
-    <ItemGroup>
-        <None Remove="Assets\icon.png" />
-        <None Remove="Bilibili.Manga.desktop" />
         <None Remove="Directory.Build.props" />
-        <None Remove="Assets\Login\noavatar.png" />
-    </ItemGroup>
-    <ItemGroup>
+        <AvaloniaResource Include="Assets\**" />
+        <None Remove="Bilibili.Manga.desktop" />
+        <None Include="..\.editorconfig" Link=".editorconfig" />
         <Content Include="Assets\icon.ico">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
@@ -37,8 +27,8 @@
         <PackageReference Include="Avalonia.Diagnostics" Version="0.10.18" />
         <PackageReference Include="Dove.Avalonia.Controls.Extensions" Version="1.8.17" />
         <PackageReference Include="ZXing.Net.Bindings.Windows.Compatibility" Version="0.16.10" />
-        <PackageReference Include="Dove.Avalonia.Controls.Extensions.ChineseInputSupoort" Version="1.2.1" />
         <PackageReference Include="runtime.osx.10.10-x64.CoreCompat.System.Drawing" Version="6.0.5.128" />
+        <PackageReference Include="Dove.Avalonia.Controls.Extensions.ChineseInputSupoort" Version="1.2.1" />
     </ItemGroup>
     <ItemGroup>
         <ProjectReference Include="..\Bilibili.Manga.Model\Bilibili.Manga.Model.csproj" />
@@ -47,11 +37,11 @@
     </ItemGroup>
     <ItemGroup>
 		<DebDependency Include="libgdiplus" />
-		<Content Include="icon.ico" CopyToPublishDirectory="PreserveNewest">
-            <LinuxPath>/usr/share/icons/icon.ico</LinuxPath>
+		<Content Include="bilibili_manga.png" CopyToPublishDirectory="PreserveNewest">
+            <LinuxPath>/usr/share/icons/bilibili_manga.png</LinuxPath>
         </Content>
-        <Content Include="Bilibili.Manga.desktop" CopyToPublishDirectory="PreserveNewest">
-            <LinuxPath>/usr/share/applications/Bilibili.Manga.Avalonia.desktop</LinuxPath>
+        <Content Include="bilibili.manga.desktop" CopyToPublishDirectory="PreserveNewest">
+            <LinuxPath>/usr/share/applications/bilibili.manga.desktop</LinuxPath>
         </Content>
     </ItemGroup>
 </Project>

@@ -17,7 +17,7 @@ namespace Bilibili.Manga
         public override void Initialize()
         {
             AvaloniaXamlLoader.Load(this);
-            DownloadManager.Instance.Init(Extension.Root);
+            DownloadManager.Instance.Init(Extension.GetRoot(true));
             RxApp.DefaultExceptionHandler = Observer.Create<Exception>(ExceptionHandler);
         }
         public override void OnFrameworkInitializationCompleted()

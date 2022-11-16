@@ -89,7 +89,7 @@ namespace Bilibili.Manga.WebClient
         {
             if (array.Count > 0)
             {
-                Directory.Delete(Path.Combine(Extension.Root, "temp"));
+                Directory.Delete(Path.Combine(Extension.GetRoot(true), "temp"));
                 Service.Clear();
                 foreach (var path in array)
                 {

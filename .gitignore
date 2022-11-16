@@ -1,6 +1,7 @@
 .vs
 bin
 obj
+OutputDebug/*.deb
 OutputDebug/*.exe
 OutputDebug/*.tar
 OutputDebug/*.tar.gz

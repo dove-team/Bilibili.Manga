@@ -22,7 +22,7 @@ namespace Bilibili.Manga.Common.Database
                     if (PlantformUntils.System == Platforms.Android)
                         _DbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "data.db");
                     else
-                        _DbPath = Path.Combine(Extension.Root, "data.db");
+                        _DbPath = Path.Combine(Extension.GetRoot(true), "data.db");
                 }
                 return _DbPath;
             }
