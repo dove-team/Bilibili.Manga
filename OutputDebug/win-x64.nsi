@@ -2,7 +2,7 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "BilibiliÂþ»­"
-!define PRODUCT_VERSION "1.3.0"
+!define PRODUCT_VERSION "1.3.1"
 !define PRODUCT_PUBLISHER "michael_eddy"
 !define PRODUCT_WEB_SITE "https://github.com/michael-eddy"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\Bilibili.Manga.exe"
