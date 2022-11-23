@@ -3,13 +3,13 @@
 <plist version="1.0">
   <dict>
     <key>CFBundleName</key>
-    <string>BiliManga</string>
+    <string>BilibiliManga</string>
     <key>CFBundleDisplayName</key>
     <string>Bilibili漫画</string>
     <key>CFBundleIdentifier</key>
-    <string>com.michael.mac</string>
+    <string>com.michael.bilibili_manga_mac</string>
     <key>CFBundleVersion</key>
-    <string>1.3.0</string>
+    <string>1.3.1</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleSignature</key>
@@ -19,7 +19,7 @@
     <key>CFBundleIconFile</key>
     <string>icon.ico</string>
     <key>CFBundleShortVersionString</key>
-    <string>1.3.0</string>
+    <string>1.3.1</string>
     <key>NSPrincipalClass</key>
     <string>NSApplication</string>
     <key>NSHighResolutionCapable</key>
